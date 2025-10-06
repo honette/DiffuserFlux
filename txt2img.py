@@ -17,6 +17,22 @@ pipe = DiffusionPipeline.from_pretrained(
     low_cpu_mem_usage=True
 ).to("cuda")
 
-prompt = "a futuristic lab with glowing holograms"
-image = pipe(prompt=prompt).images[0]
-image.save("flux_txt2img.png")
+# prompt = "a futuristic lab with glowing holograms"
+# image = pipe(prompt=prompt).images[0]
+# image.save("flux_txt2img.png")
+
+while True:
+    prompt = input("\nType prompts : ")
+    if prompt.strip().lower() == "exit":
+        print("Bye!")
+        break
+
+    print(f"Now Generating : {prompt}")
+    image = pipe(prompt=prompt).images[0]
+
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    safe_prompt = prompt[:20].replace(" ", "_").replace("/", "_")
+    filename = f"flux_output_{safe_prompt}_{timestamp}.png"
+
+    image.save(filename)
+    print(f"Completed : {filename}")

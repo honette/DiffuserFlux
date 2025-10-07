@@ -2,7 +2,7 @@ import os
 os.environ["HF_HOME"] = "/workspace/hf_cache"
 os.environ["HF_HUB_CACHE"] = "/workspace/hf_cache"
 
-lora_path = "/workspace/DiffuserFlux/lora_model.safetensors"
+lora_path = "/workspace/DiffuserFlux/lora_flux_uncensored.safetensors"
 use_lora = False
 if os.path.exists(lora_path):
     print(f"Found LoRA file: {lora_path}")
@@ -31,7 +31,8 @@ pipe = FluxKontextPipeline.from_pretrained(
 ).to("cuda")
 
 if use_lora:
-    pipe.load_lora_weights(lora_path)
+    pipe.load_lora_weights("/workspace/DiffuserFlux/lora_flux_uncensored.safetensors")
+    pipe.load_lora_weights("/workspace/DiffuserFlux/lora_flux_nsfw.safetensors")
     print("✅ LoRA loaded successfully.")
 
 input_image = Image.open("sample/person.jpg")

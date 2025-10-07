@@ -2,6 +2,17 @@ import os
 os.environ["HF_HOME"] = "/workspace/hf_cache"
 os.environ["HF_HUB_CACHE"] = "/workspace/hf_cache"
 
+lora_path = "/workspace/DiffuserFlux/lora_model.safetensors"
+use_lora = False
+if os.path.exists(lora_path):
+    print(f"Found LoRA file: {lora_path}")
+    use_lora = True
+else:
+    ans = input("⚠️ LoRA file not found. Continue without LoRA? [y/N]: ").strip().lower()
+    if ans != "y":
+        print("Aborted.")
+        exit()
+
 from datetime import datetime
 import readline
 from huggingface_hub import login
@@ -16,6 +27,10 @@ pipe = DiffusionPipeline.from_pretrained(
     cache_dir="/workspace/hf_cache",
     low_cpu_mem_usage=True
 ).to("cuda")
+
+if use_lora:
+    pipe.load_lora_weights(lora_path)
+    print("✅ LoRA loaded successfully.")
 
 while True:
     prompt = input("\nType prompts : ")

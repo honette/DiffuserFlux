@@ -5,9 +5,6 @@ os.environ["HF_HUB_CACHE"] = "/workspace/hf_cache"
 lora_path = "/workspace/DiffuserFlux/lora_model.safetensors"
 use_lora = False
 if os.path.exists(lora_path):
-    url = "https://drive.google.com/uc?id=1LJ9Xa2BrvT8i2h_sr_oBEbDDZdEWn4U6"
-    output = "/workspace/DiffuserFlux/lora_model.safetensors"
-    gdown.download(url, output, quiet=False)
     print(f"Found LoRA file: {lora_path}")
     use_lora = True
 else:

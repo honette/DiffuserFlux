@@ -5,6 +5,7 @@ os.environ["HF_HUB_CACHE"] = "/workspace/hf_cache"
 from datetime import datetime
 from huggingface_hub import login
 from diffusers import DiffusionPipeline
+from diffusers.utils import load_image
 import torch
 
 login(token=os.environ["HF_TOKEN"])
@@ -18,9 +19,11 @@ pipe = DiffusionPipeline.from_pretrained(
     low_cpu_mem_usage=True
 ).to("cuda")
 
-# prompt = "a futuristic lab with glowing holograms"
-# image = pipe(prompt=prompt).images[0]
-# image.save("flux_txt2img.png")
+
+pipe = FluxKontextPipeline.from_pretrained("black-forest-labs/FLUX.1-Kontext-dev", torch_dtype=torch.bfloat16)
+pipe.to("cuda")
+
+input_image = load_image("https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/diffusers/cat.png")
 
 while True:
     prompt = input("\nType prompts : ")
@@ -29,13 +32,14 @@ while True:
         break
 
     print(f"Now Generating : {prompt}")
-    image = pipe(prompt=prompt).images[0]
-
-    output_dir = "./tmp"
-    os.makedirs(output_dir, exist_ok=True) 
+    image = pipe(
+        image=input_image,
+        prompt=prompt,
+        guidance_scale=2.5
+    ).images[0]
 
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-    filename = f"flux_txt2img_{timestamp}.png"
+    filename = f"flux_img2img_{timestamp}.png"
     save_path = os.path.join(output_dir, filename)
     image.save(save_path)
     print(f"Completed : {filename}")

@@ -1,32 +1,35 @@
 # 🚀 RunPod 上で Flux1.Kontact + Diffusers 環境構築手順
 
-- SSH接続、SCPダウンロード
+- SSH接続、SCPダウンロード (アドレスは適宜変更）
 
 ```bash
-ssh root@69.30.85.102 -p 22004 -i ~/.ssh/id_runpod
-scp -i ~/.ssh/id_runpod \
-    qm0dzsrb39zkii-64410ff9@ssh.runpod.io:/workspace/flux_txt2img.png \
-    ./flux_txt2img.png
+ssh root@194.68.245.146 -p 22119 -i ~/.ssh/id_runpod
+scp -i ~/.ssh/id_runpod -P 22119 -r root@194.68.245.146:/workspace/DiffuserFlux/*.png ./
+```
 
-## 0. 作業環境構築
-
+## 1. 作業環境構築
 
 ```bash
 apt update; apt install -y vim
-cd workspace
+cd /workspace
+git clone https://github.com/honette/DiffuserFlux.git
+cd DiffuserFlux/
+
+# venv環境にライブラリをインストール
+bash setup.sh
+
+# venvを使わない場合
+pip install -r requirements.txt
 ```
 
-## 1. 基本依存関係のインストール
+## トラブルシューティング
 
-Pod 起動後にまず必要なライブラリを入れる：
-
-```bash
-# pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
-pip install diffusers==0.35.0 transformers==4.50.0
-pip install accelerate safetensors pillow sentencepiece "protobuf<4" hf_transfer
 ```
+# ターミナルがフリーズ、プロセスだけが残った
+ps aux | grep python
+kill 1234
 
-（RunPod のイメージによっては torch は最初から入ってる場合もある）
+```
 
 ---
 

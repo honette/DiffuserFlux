@@ -38,7 +38,8 @@ while True:
     os.makedirs(output_dir, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-    filename = f"flux_img2img_{timestamp}.png"
+    filename = f"flux_img2img_{timestamp}.jpg"
     save_path = os.path.join(output_dir, filename)
-    image.save(save_path)
-    print(f"Completed : {filename}")
+    image.save(save_path, format="JPEG", quality=95)
+
+    print(f"Completed : {save_path}")

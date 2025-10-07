@@ -1,11 +1,13 @@
 # 🚀 RunPod 上で Flux1.Kontact + Diffusers 環境構築手順
 
+- 秘密鍵はWSL上の `~/.ssh/id_runpod` に保存してパーミッション `600` にする
+
 - SSH接続、SCPダウンロード (アドレスは適宜変更）
 
 ```bash
 ssh root@194.68.245.146 -p 22119 -i ~/.ssh/id_runpod
 # scp -i ~/.ssh/id_runpod -P 22119 -r root@194.68.245.146:/workspace/DiffuserFlux/tmp/*.png ./
-rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 22119" root@194.68.245.146:/workspace/DiffuserFlux/tmp/ ./
+rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 54876" root@195.26.233.74:/workspace/DiffuserFlux/tmp/ ./
 
 ```
 

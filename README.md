@@ -7,8 +7,7 @@
 ```bash
 ssh root@194.68.245.146 -p 22119 -i ~/.ssh/id_runpod
 # scp -i ~/.ssh/id_runpod -P 22119 -r root@194.68.245.146:/workspace/DiffuserFlux/tmp/*.png ./
-rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 54876" root@195.26.233.74:/workspace/DiffuserFlux/tmp/ ./
-
+rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 22059" root@69.30.85.101:/workspace/DiffuserFlux/tmp/ ./
 ```
 
 ## 1. 作業環境構築
@@ -18,7 +17,11 @@ apt update; apt install -y vim
 cd /workspace
 git clone https://github.com/honette/DiffuserFlux.git
 cd DiffuserFlux/
+```
 
+- HF_TOKENをexportする
+
+```
 # venv環境にライブラリをインストール
 bash setup.sh
 

@@ -31,8 +31,16 @@ pipe = FluxKontextPipeline.from_pretrained(
 ).to("cuda")
 
 if use_lora:
-    pipe.load_lora_weights("/workspace/DiffuserFlux/lora_flux_uncensored.safetensors")
-    pipe.load_lora_weights("/workspace/DiffuserFlux/lora_flux_nsfw.safetensors")
+    pipe.load_lora_weights(
+        "/workspace/DiffuserFlux/lora_flux_uncensored.safetensors",
+        adapter_name="style1"
+    )
+    pipe.load_lora_weights(
+        "/workspace/DiffuserFlux/lora_flux_nsfw.safetensors",
+        adapter_name="style2"
+    )
+    pipe.set_adapters(["style1", "style2"], adapter_weights=[1.0, 1.0])
+
     print("✅ LoRA loaded successfully.")
 
 input_image = Image.open("sample/person.jpg")

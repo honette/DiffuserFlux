@@ -19,7 +19,7 @@ pipe = FluxKontextPipeline.from_pretrained(
     low_cpu_mem_usage=True
 ).to("cuda")
 
-input_image = Image.open("sample/person.png")
+input_image = Image.open("sample/person.jpg")
 
 while True:
     prompt = input("\nType prompts : ")

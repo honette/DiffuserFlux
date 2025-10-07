@@ -19,8 +19,8 @@ pipe = QwenImageEditPipeline.from_pretrained(
 ).to("cuda")
 
 pipe.set_progress_bar_config(disable=None)
-image1 = Image.open("sample/person.png")
-image2 = Image.open("sample/dog.png")
+image1 = Image.open("sample/person.jpg")
+image2 = Image.open("sample/dog.jpg")
 
 while True:
     prompt = input("\nType prompts : ")

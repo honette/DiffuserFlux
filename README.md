@@ -48,4 +48,4 @@ kill 1234
   - This female model is in a completely different cinematic scene. Change to a stylish pose like in a fashion magazine. Change her outfit to a bikini swimsuit.
 
 - NSFWは試験中
-  - nsfw, nude, I take her clothes off completely. Her nipples are erect.
+  - nsfw, nude, I take her clothes off completely. Her breasts are beautiful, Her nipples are erect.

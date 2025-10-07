@@ -12,6 +12,8 @@ gdown.download(url, output, quiet=False)
 #url = "https://drive.google.com/uc?id=1evQqmVHCpDNRM4ehiA-SVlpFUUkOSvpr"
 # FLUXTASTIC_V3
 #url = "https://drive.google.com/uc?id=1oblgf_aC6qDjg-5A3MswVfqWqEKxuoFO"
+# NSFW master
+url = "https://drive.google.com/uc?id=1fdJc6pH838QONfqwBsxV_xcXxcBuYOx4"
 
 output = "/workspace/DiffuserFlux/lora_flux_nsfw.safetensors"
 gdown.download(url, output, quiet=False)

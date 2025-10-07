@@ -4,7 +4,9 @@
 
 ```bash
 ssh root@194.68.245.146 -p 22119 -i ~/.ssh/id_runpod
-scp -i ~/.ssh/id_runpod -P 22119 -r root@194.68.245.146:/workspace/DiffuserFlux/*.png ./
+# scp -i ~/.ssh/id_runpod -P 22119 -r root@194.68.245.146:/workspace/DiffuserFlux/tmp/*.png ./
+rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 22119" root@194.68.245.146:/workspace/DiffuserFlux/tmp/ ./
+
 ```
 
 ## 1. 作業環境構築

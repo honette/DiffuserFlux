@@ -22,7 +22,8 @@ Pod 起動後にまず必要なライブラリを入れる：
 
 ```bash
 # pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
-pip install diffusers transformers accelerate safetensors pillow sentencepiece "protobuf<4" hf_transfer
+pip install diffusers==0.35.0 transformers==4.50.0
+pip install accelerate safetensors pillow sentencepiece "protobuf<4" hf_transfer
 ```
 
 （RunPod のイメージによっては torch は最初から入ってる場合もある）

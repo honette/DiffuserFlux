@@ -2,6 +2,7 @@ import os
 os.environ["HF_HOME"] = "/workspace/hf_cache"
 os.environ["HF_HUB_CACHE"] = "/workspace/hf_cache"
 
+from datetime import datetime
 from huggingface_hub import login
 from diffusers import DiffusionPipeline
 import torch

@@ -5,13 +5,13 @@ os.environ["HF_HUB_CACHE"] = "/workspace/hf_cache"
 from datetime import datetime
 import readline
 from huggingface_hub import login
-from diffusers import QwenImageEditPlusPipeline
+from diffusers import QwenImageEditPipeline
 import torch
 from PIL import Image
 
 login(token=os.environ["HF_TOKEN"])
 
-pipe = QwenImageEditPlusPipeline.from_pretrained(
+pipe = QwenImageEditPipeline.from_pretrained(
     "Qwen/Qwen-Image-Edit-2509",
     torch_dtype=torch.bfloat16,
     cache_dir="/workspace/hf_cache",

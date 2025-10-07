@@ -5,22 +5,19 @@ os.environ["HF_HUB_CACHE"] = "/workspace/hf_cache"
 from datetime import datetime
 import readline
 from huggingface_hub import login
-from diffusers import DiffusionPipeline
+from diffusers import FluxKontextPipeline
 from diffusers.utils import load_image
 from PIL import Image
 import torch
 
 login(token=os.environ["HF_TOKEN"])
 
-pipe = DiffusionPipeline.from_pretrained(
+pipe = FluxKontextPipeline.from_pretrained(
     "black-forest-labs/FLUX.1-Kontext-dev",
     torch_dtype=torch.bfloat16,
     cache_dir="/workspace/hf_cache",
     low_cpu_mem_usage=True
 ).to("cuda")
-
-pipe = FluxKontextPipeline.from_pretrained("black-forest-labs/FLUX.1-Kontext-dev", torch_dtype=torch.bfloat16)
-pipe.to("cuda")
 
 input_image = Image.open("sample/person.png")
 

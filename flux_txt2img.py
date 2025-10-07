@@ -27,7 +27,7 @@ while True:
     image = pipe(prompt=prompt).images[0]
 
     output_dir = "./tmp"
-    os.makedirs(output_dir, exist_ok=True) 
+    os.makedirs(output_dir, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
     filename = f"flux_txt2img_{timestamp}.png"

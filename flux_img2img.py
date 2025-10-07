@@ -34,6 +34,9 @@ while True:
         guidance_scale=2.5
     ).images[0]
 
+    output_dir = "./tmp"
+    os.makedirs(output_dir, exist_ok=True)
+
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
     filename = f"flux_img2img_{timestamp}.png"
     save_path = os.path.join(output_dir, filename)

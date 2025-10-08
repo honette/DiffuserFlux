@@ -33,9 +33,11 @@ def read_common_prompt(base_dir):
                 return prompt
             else:
                 print(f"⚠️  Warning: {sample_path} is empty as well.")
-
         raise FileNotFoundError(f"No usable common_prompt.txt or common_prompt.sample.txt found in {base_dir}")
-   
+
+    print(f"Using prompt: {prompt}")
+    return prompt
+
 def enumerate_source_images(base_dir):
     src_dir = os.path.join(base_dir, "source_images")
     if not os.path.exists(src_dir):
@@ -99,12 +101,6 @@ def main():
     args = parser.parse_args()
 
     prompt = read_common_prompt(args.dir)
-
-    #debug
-    print(f"Using prompt: {prompt}")
-    if not prompt:
-        print("No valid prompt found.")
-        return
 
     pipe = setup_pipeline(use_lora=not args.no_lora)
     if pipe is None:

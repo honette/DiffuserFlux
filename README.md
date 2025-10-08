@@ -52,6 +52,7 @@ kill 1234
   - Change the woman's current clothing to a camisole instead. Adjust her pose so that her arm and hand are relaxed by her side, removing the pointing gesture.
 - NSFW
   - Change the woman's current clothing to take her clothes off completely, Adjust her pose so that her arm and hand are relaxed by her side, removing the gesture. nsfw, nude
+  - Change the woman's pose to undressing shirt to take her clothes off and showing her breasts, nsfw, nude
 
 - モデルだけそのまま、元の構図を無視させる
   - This female model is in a completely different cinematic scene. Change to a stylish pose like in a fashion magazine. Change her outfit to a bikini swimsuit.
@@ -75,6 +76,11 @@ kill 1234
      └─ ...
 ```
 
+- 対応している画像拡張子 (PILが開ける奴)
+
+```
+supported_ext = ("*.jpg", "*.jpeg", "*.png", "*.webp", "*.bmp", "*.tiff", "*.tif")
+```
 
 
 ---

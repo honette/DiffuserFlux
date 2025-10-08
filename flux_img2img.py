@@ -33,13 +33,13 @@ pipe = FluxKontextPipeline.from_pretrained(
 if use_lora:
     pipe.load_lora_weights(
         "/workspace/DiffuserFlux/lora_flux_uncensored.safetensors",
-        adapter_name="style1"
+        adapter_name="uncensored"
     )
     pipe.load_lora_weights(
         "/workspace/DiffuserFlux/lora_flux_nsfw.safetensors",
-        adapter_name="style2"
+        adapter_name="nsfw"
     )
-    pipe.set_adapters(["style1", "style2"], adapter_weights=[1.0, 1.0])
+    pipe.set_adapters(["uncensored", "nsfw"], adapter_weights=[0.8, 0.8])
 
     print("✅ LoRA loaded successfully.")
 

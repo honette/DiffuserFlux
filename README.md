@@ -58,14 +58,24 @@ kill 1234
 
 ---
 
-# バッチ実行
+## バッチ実行
 
-- /batch
-  - common_prompt.txt
-  - /source_images
-    - image01.jpg
-    - image02.jpg
-    ...
+### ファイル構造
+
+```
+/batch
+ ├─ common_prompt.txt        ← 全体に共通で使うプロンプト
+ ├─ /source_images           ← 元画像（img2img入力）
+ │   ├─ image01.jpg
+ │   ├─ image02.jpg
+ │   └─ ...
+ └─ /outputs                 ← 出力先（自動生成）
+     ├─ image01_20251008.jpg
+     ├─ image02_20251008.jpg
+     └─ ...
+```
+
+
 
 ---
 

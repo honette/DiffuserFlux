@@ -18,8 +18,9 @@ import readline
 from huggingface_hub import login
 from diffusers import FluxKontextPipeline
 from diffusers.utils import load_image
-from PIL import Image, ExifTags
 import torch
+from PIL import Image, ExifTags
+import piexif
 
 login(token=os.environ["HF_TOKEN"])
 

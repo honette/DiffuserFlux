@@ -1,2 +1,3 @@
 tmp/*
 .env
+common_prompt.txt

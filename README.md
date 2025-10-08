@@ -5,8 +5,8 @@
 - SSH接続、SCPダウンロード (アドレスは適宜変更）
 
 ```bash
-ssh root@63.141.33.5 -p 22016 -i ~/.ssh/id_ed25519
-rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 22016" root@63.141.33.5:/workspace/DiffuserFlux/tmp/ ./
+ssh root@69.30.85.30 -p 22044 -i ~/.ssh/id_ed25519
+rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 22044" root@69.30.85.30:/workspace/DiffuserFlux/tmp/ ./
 ```
 
 ## 1. 作業環境構築
@@ -31,6 +31,11 @@ pip install -r requirements.txt
 ## 開発状況
 
 - 動作検証済みは flux_img2img.py のみ
+
+## 画像素材・LoRAについて
+
+- NSFW対応LoRAはGoogle Driveからダウンロード `download_lora.py`
+- バッチ実行用のサンプル画像もGoogle Driveからダウンロード `unzip_images.py`
 
 ## トラブルシューティング
 

@@ -100,6 +100,12 @@ def main():
 
     prompt = read_common_prompt(args.dir)
 
+    #debug
+    print(f"Using prompt: {prompt}")
+    if not prompt:
+        print("No valid prompt found.")
+        return
+
     pipe = setup_pipeline(use_lora=not args.no_lora)
     if pipe is None:
         print("Pipeline setup failed.")

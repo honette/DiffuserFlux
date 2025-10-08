@@ -11,3 +11,4 @@ sentencepiece
 protobuf<4
 hf_transfer
 gdown
+piexif

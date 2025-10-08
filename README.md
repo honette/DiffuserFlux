@@ -28,6 +28,10 @@ bash setup.sh
 pip install -r requirements.txt
 ```
 
+## 開発状況
+
+- 動作検証済みは flux_img2img.py のみ
+
 ## トラブルシューティング
 
 ```
@@ -51,6 +55,17 @@ kill 1234
 
 - モデルだけそのまま、元の構図を無視させる
   - This female model is in a completely different cinematic scene. Change to a stylish pose like in a fashion magazine. Change her outfit to a bikini swimsuit.
+
+---
+
+# バッチ実行
+
+- /batch
+  - common_prompt.txt
+  - /source_images
+    - image01.jpg
+    - image02.jpg
+    ...
 
 ---
 

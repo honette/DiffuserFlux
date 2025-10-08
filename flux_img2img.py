@@ -18,7 +18,7 @@ import readline
 from huggingface_hub import login
 from diffusers import FluxKontextPipeline
 from diffusers.utils import load_image
-from PIL import Image
+from PIL import Image, ExifTags
 import torch
 
 login(token=os.environ["HF_TOKEN"])
@@ -64,6 +64,12 @@ while True:
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
     filename = f"flux_img2img_{timestamp}.jpg"
     save_path = os.path.join(output_dir, filename)
-    image.save(save_path, format="JPEG", quality=95)
+
+    # ExifにUserCommentとしてプロンプトを格納
+    exif_dict = {"0th": {}, "Exif": {}, "GPS": {}, "1st": {}, "thumbnail": None}
+    exif_dict["Exif"][piexif.ExifIFD.UserComment] = prompt.encode("utf-8")
+    exif_bytes = piexif.dump(exif_dict)
+
+    image.save(save_path, "jpeg", quality=95, exif=exif_bytes)
 
     print(f"Completed : {save_path}")

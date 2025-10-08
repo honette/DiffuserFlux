@@ -17,3 +17,16 @@ url = "https://drive.google.com/uc?id=1fdJc6pH838QONfqwBsxV_xcXxcBuYOx4"
 
 output = "/workspace/DiffuserFlux/lora_flux_nsfw.safetensors"
 gdown.download(url, output, quiet=False)
+
+# All in one nipples
+url = "https://drive.google.com/uc?id=1uSquF3AroUBoDBmKx7ywBjKElHBvgcaR"
+# aps nipples
+url = "https://drive.google.com/uc?id=1TfkCebZYPf9TgJeMc5KpOwjWvYCrAdzp"
+
+output = "/workspace/DiffuserFlux/lora_flux_nipples.safetensors"
+gdown.download(url, output, quiet=False)
+
+# Breasts Out Fashion
+url = "https://drive.google.com/uc?id=11Q7hj6Qik9VRwJ9IPFuGmRrQ52Ta0Nyv"
+output = "/workspace/DiffuserFlux/lora_flux_2bout.safetensors"
+gdown.download(url, output, quiet=False)

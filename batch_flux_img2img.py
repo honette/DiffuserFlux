@@ -20,7 +20,7 @@ def read_common_prompt(base_dir):
         with open(path, "r", encoding="utf-8") as f:
             prompt = f.read().strip()
             if prompt:
-                print(f"Using common prompt from {path}")
+                print(f"Using common prompt from {path}: {prompt}")
                 return prompt
             else:
                 print(f"⚠️  Warning: {path} is empty. Trying sample prompt...\n")
@@ -29,14 +29,12 @@ def read_common_prompt(base_dir):
         with open(sample_path, "r", encoding="utf-8") as f:
             prompt = f.read().strip()
             if prompt:
-                print(f"Using sample prompt from {sample_path}")
+                print(f"Using sample prompt from {sample_path}: {prompt}")
                 return prompt
             else:
                 print(f"⚠️  Warning: {sample_path} is empty as well.")
-        raise FileNotFoundError(f"No usable common_prompt.txt or common_prompt.sample.txt found in {base_dir}")
 
-    print(f"Using prompt: {prompt}")
-    return prompt
+    raise FileNotFoundError(f"No usable common_prompt.txt or common_prompt.sample.txt found in {base_dir}")
 
 def enumerate_source_images(base_dir):
     src_dir = os.path.join(base_dir, "source_images")

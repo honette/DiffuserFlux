@@ -7,6 +7,7 @@
 ```bash
 ssh root@69.30.85.30 -p 22044 -i ~/.ssh/id_ed25519
 rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 22044" root@69.30.85.30:/workspace/DiffuserFlux/tmp/ ./
+rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 22044" root@69.30.85.30:/workspace/DiffuserFlux/batch/outputs/ ./
 ```
 
 ## 1. 作業環境構築

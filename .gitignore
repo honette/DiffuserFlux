@@ -1,3 +1,43 @@
 tmp/*
+batch/
 .env
 common_prompt.txt
+
+# === Python general ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+.env
+venv/
+*.egg-info/
+
+# === Diffusers / HF cache ===
+/workspace/hf_cache/
+hf_cache/
+huggingface/
+
+# === RunPod / LoRA / Models ===
+*.safetensors
+*.ckpt
+*.pt
+
+# === Batch process outputs ===
+/workspace/DiffuserFlux/batch/source_images/
+!/workspace/DiffuserFlux/batch/source_images/.gitkeep
+/workspace/DiffuserFlux/batch/outputs/
+!/workspace/DiffuserFlux/batch/outputs/.gitkeep
+/workspace/DiffuserFlux/batch/images.zip
+
+# === Temporary files ===
+tmp/
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# === IDE ===
+.vscode/
+.idea/

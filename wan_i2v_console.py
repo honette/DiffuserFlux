@@ -1,6 +1,7 @@
 import os
 import torch
 import numpy as np
+import readline
 from datetime import datetime
 from diffusers import WanImageToVideoPipeline
 from diffusers.utils import export_to_video, load_image
@@ -19,7 +20,7 @@ from huggingface_hub import login
 login(token=os.environ.get("HF_TOKEN", ""))
 
 # === モデルロード ===
-print("🚀 Loading Wan2.2 pipeline... (this may take a while)")
+print("🚀 Loading Wan2.2 5B pipeline... (this may take a while)")
 pipe = WanImageToVideoPipeline.from_pretrained(MODEL_ID, torch_dtype=DTYPE)
 pipe.to(DEVICE)
 print("✅ Model loaded successfully.")

@@ -29,6 +29,24 @@ pip install -r requirements.txt
 bash setup.sh
 ```
 
+- Flux Kontextを起動する
+
+```
+python download_lora_flux.py
+python unzip_images.py
+python flux_img2img.py --image batch/source_images/hashimoto-kanna_010.jpg
+```
+
+- Wan2.2を起動する
+
+```
+python unzip_images.py
+python wan_i2v_console.py
+
+# 対話で画像を渡す
+> load: batch/source_images/hashimoto-kanna_010.jpg
+```
+
 ## 開発状況
 
 - 動作検証済みは flux_img2img.py のみ
@@ -49,7 +67,7 @@ kill 1234
 
 ---
 
-## Sample Prompt
+## Flux-Kontext Sample Prompt
 
 何を維持して、何を変更するのかを明確にするのがポイント
 
@@ -91,6 +109,11 @@ kill 1234
 supported_ext = ("*.jpg", "*.jpeg", "*.png", "*.webp", "*.bmp", "*.tiff", "*.tif")
 ```
 
+---
+
+## Wan2.2 5B Prompt Testing
+
+- Description: She quickly strips off her clothes, becomes completely naked, and bends forward, Camera Position: Fixed in front, Mood: Quiet photo session
 
 ---
 

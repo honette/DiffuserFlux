@@ -12,3 +12,6 @@ protobuf<4
 hf_transfer
 gdown
 piexif
+
+ftfy
+opencv-python

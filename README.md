@@ -17,16 +17,14 @@ apt update; apt install -y vim
 cd /workspace
 git clone https://github.com/honette/DiffuserFlux.git
 cd DiffuserFlux/
-```
-
-- HF_TOKENをexportする
-
-```
-# venv環境にライブラリをインストール
-bash setup.sh
-
-# venvを使わない場合
 pip install -r requirements.txt
+```
+
+- **HF_TOKENをexportする**
+
+```
+# venv環境にライブラリをインストールする場合は `pip install` せず
+bash setup.sh
 ```
 
 ## 開発状況

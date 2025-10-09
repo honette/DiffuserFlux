@@ -7,7 +7,7 @@ base_dir = "/workspace/DiffuserFlux/batch"
 os.makedirs(base_dir, exist_ok=True)
 
 # Google Drive ファイルのURL
-url = "https://drive.google.com/uc?id=1Cvh7mIwnvUIZxdrGsxW8Q71JhJYtYhNM"
+url = "https://drive.google.com/uc?id=1AZlO0NDtmr53hd2RVBVjKFCt7zIUECHI"
 
 # ダウンロード先ZIPファイル
 zip_path = os.path.join(base_dir, "images.zip")

@@ -1,11 +1,13 @@
 # 🚀 RunPod 上で Flux1.Kontact + Diffusers 環境構築手順
 
-- 秘密鍵はWSL上の `~/.ssh/id_runpod` に保存してパーミッション `600` にする
+- GPUメモリ48GB以上のPodを選択
+- Wan2.2を使う場合はストレージ130GB以上にテンプレート変更
 
+- 秘密鍵はWSL上の `~/.ssh/id_runpod` に保存してパーミッション `600` にする
 - SSH接続、SCPダウンロード (アドレスは適宜変更）
 
 ```bash
-ssh root@69.30.85.30 -p 22044 -i ~/.ssh/id_ed25519
+ssh root@69.30.85.30 -p 22044 -i ~/.ssh/id_runpod
 rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 22044" root@69.30.85.30:/workspace/DiffuserFlux/tmp/ ./
 rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 22044" root@69.30.85.30:/workspace/DiffuserFlux/batch/outputs/ ./
 ```

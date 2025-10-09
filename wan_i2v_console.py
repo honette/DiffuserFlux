@@ -10,7 +10,7 @@ os.environ["HF_HOME"] = "/workspace/hf_cache"
 os.environ["HF_HUB_CACHE"] = "/workspace/hf_cache"
 
 # === 定数 ===
-MODEL_ID = "Wan-AI/Wan2.2-I2V-A14B-Diffusers"
+MODEL_ID = "Wan-AI/Wan2.2-TI2V-5B-Diffusers"
 DEVICE = "cuda"
 DTYPE = torch.bfloat16
 

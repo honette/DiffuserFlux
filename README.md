@@ -51,15 +51,18 @@ kill 1234
 
 何を維持して、何を変更するのかを明確にするのがポイント
 
+- 正方形に自動整形
+  - extend the canvas with seamless outpainting to create a square format while preserving the original style and lighting.
 - モデルも構図もそのまま、服装とポーズの変更
   - The woman playing at beach. Change her outfit to a bikini swimsuit. she posing excited her both arms up.
   - Change the woman's current clothing to a camisole instead. Adjust her pose so that her arm and hand are relaxed by her side, removing the pointing gesture.
-- NSFW
-  - Change the woman's current clothing to take her clothes off completely, Adjust her pose so that her arm and hand are relaxed by her side, removing the gesture. nsfw, nude
-  - Change the woman's pose to undressing shirt to take her clothes off and showing her breasts, nsfw, nude
-
 - モデルだけそのまま、元の構図を無視させる
   - This female model is in a completely different cinematic scene. Change to a stylish pose like in a fashion magazine. Change her outfit to a bikini swimsuit.
+- NSFW
+  - Change the woman's current clothing to take her clothes off completely, Adjust her pose so that her arm and hand are relaxed by her side, removing the gesture. nsfw, nude, And modify her body to a natural and healthy anatomical shape
+  - Change the woman's pose to undressing shirt to take her clothes off and showing her breasts, nsfw, nude
+- 完成版
+  - Extend the canvas with seamless outpainting to create a square format while preserving the original style and lighting, Change the woman's current clothing to take her clothes off completely, Adjust her pose so that her arm and hand are relaxed by her side, removing the gesture. nsfw, nude, And modify her body to a natural and healthy anatomical shape
 
 ---
 

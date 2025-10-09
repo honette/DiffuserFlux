@@ -25,6 +25,21 @@ pipe = WanImageToVideoPipeline.from_pretrained(MODEL_ID, torch_dtype=DTYPE)
 pipe.to(DEVICE)
 print("✅ Model loaded successfully.")
 
+# === LoRA関連 (将来対応用) ===
+lora_nsfw = "/workspace/DiffuserFlux/lora_wan_nsfw.safetensors"
+lora_lite_high = "/workspace/DiffuserFlux/lora_wan_lightining-high.safetensors"
+lora_lite_low = "/workspace/DiffuserFlux/lora_wan_lightining-low.safetensors"
+if os.path.exists(lora_uncensored) and os.path.exists(lora_nsfw):
+    pipe.load_lora_weights(lora_nsfw, adapter_name="nsfw")
+    pipe.load_lora_weights(lora_lite_high, adapter_name="high")
+    pipe.load_lora_weights(lora_lite_low, adapter_name="low")
+    pipe.set_adapters(["nsfw", "high", "low"], adapter_weights=[0.8, 0.8, 0.8])
+    # pipe.load_lora_weights(lora_nsfw, adapter_name="nsfw")
+    # pipe.set_adapters(["nsfw"], adapter_weights=[0.8])
+    print("✅ LoRA loaded successfully.")
+else:
+    print("⚠️  LoRA files missing. Skipping.")
+
 # === 画像の初期設定 ===
 current_image = None
 
@@ -84,7 +99,8 @@ while True:
         width=width,
         num_frames=num_frames,
         guidance_scale=3.5,
-        num_inference_steps=40,
+        # num_inference_steps=40,
+        num_inference_steps=4,  # LoRAでステップ短縮
         generator=generator,
     ).frames[0]
 

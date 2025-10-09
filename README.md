@@ -113,7 +113,10 @@ supported_ext = ("*.jpg", "*.jpeg", "*.png", "*.webp", "*.bmp", "*.tiff", "*.tif
 
 ## Wan2.2 5B Prompt Testing
 
-- Description: She quickly strips off her clothes, becomes completely naked, and bends forward, Camera Position: Fixed in front, Mood: Quiet photo session
+- Description: She quickly strips off her clothes, becomes completely naked, and bends forward; Camera Position: Fixed in front; Mood: Quiet photo session
+- Description: She slowly puts on a jacket and adjusts the collar; Camera: fixed front, medium shot, keep full body in frame; Mood: calm indoor photo session, Lighting: soft daylight studio
+- Description: Her clothes fall apart, becomes completely naked; Constraints: Keeps her head orientation unchanged; Camera Position: Fixed in front; Mood: Quiet photo session
+- Description: Her clothes fall apart, becomes weared only bikini swimwear; Constraints: Keeps her head orientation unchanged; Camera Position: Fixed in front; Mood: Quiet photo session
 
 ---
 

@@ -1,7 +1,8 @@
 # 🚀 RunPod 上で Flux1.Kontact + Diffusers 環境構築手順
 
 - GPUメモリ48GB以上のPodを選択
-- Wan2.2を使う場合はストレージ130GB以上にテンプレート変更
+- Podテンプレートは `Runpod Pytorch 2.8.0`
+- Expose HTTP Portsに8188を追加 `8188,8888` (ComfyUI用)
 
 - 秘密鍵はWSL上の `~/.ssh/id_runpod` に保存してパーミッション `600` にする
 - SSH接続、SCPダウンロード (アドレスは適宜変更）

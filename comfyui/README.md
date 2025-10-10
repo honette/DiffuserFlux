@@ -1,18 +1,35 @@
+## セットアップ
+
+- モデルのダウンロード（ターミナルから）
+
+```bash
+cd /workspace
+git clone https://github.com/honette/DiffuserFlux.git
+cd DiffuserFlux/comfyui
+pip install tqdm
+python3 pull_wan_diffuser_model_for_comfyui.py
+```
+
 ## プロンプト
 
 ### Systemプロンプト
 
-- 顔崩れ、カメラぶれや余剰なアクションを防ぐ
-
-```
-Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: A scene from a drama;
-```
+- Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: She is teenager, She has large nipples;
+- Constraints: head orientation remains constant throughout the motion; Camera: Zoom out so that the camera covers her from head to waist; Mood: She keeps expression. She is teenager,She has large nipples, her breasts are so soft;
 
 ### Sceneプロンプト
 
+- 服が弾け飛ぶ
+    - Description: As soon as the video begins, her clothes fly off in an instant, she is completely naked, becomes full nude;
+- 服が弾け飛ぶ + 乳揉み
+    - Description: As soon as the video begins, her clothes fly off in an instant, she is completely naked, and she gathers her breasts together with her elbows;
+    - Description: As soon as the video starts, her clothes fly off in an instant, she is completely naked, and she supports her breasts from underneath with her palms;
+- 服が弾け飛ぶ + 尻を向ける
+    - Description: As soon as the video begins, her clothes fly off in an instant, she is completely naked, becomes full nude, Then she turns her ass towards me;
+- 服が弾け飛ぶ + 胸を揺らす
+    - Description: As soon as the video begins, She clothes fly off in an instant, she is completely naked including the lower body, Then she jumps little by little;
 - 自分で脱ぐ
-    - Description: She takes off her clothes and becomes completely naked;
-    - Description: She forcefully tears off her clothes and strips off, leaving her completely naked.
+    - Description: As soon as the video starts, she quickly lifts her clothes to reveal her breasts;
 - 第三者がすれ違いざまに脱がす（すれ違いざまに)
     - Description: She stands still as an unseen figure swiftly crosses the frame from right to left, stripping her clothes to become completely naked;
     - Description: She stands still as an unseen figure swiftly passes from the right side of the frame, tearing away her clothes in a single fluid motion, becomes completely naked; the figure exits the frame to the left;

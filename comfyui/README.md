@@ -17,13 +17,15 @@ Constraints: head orientation remains constant throughout the motion; Camera: fi
     - Description: She stands still as an unseen figure swiftly crosses the frame from right to left, stripping her clothes to become completely naked;
     - Description: She stands still as an unseen figure swiftly passes from the right side of the frame, tearing away her clothes in a single fluid motion, becomes completely naked; the figure exits the frame to the left;
 - 服がバラバラになる（縫い目から分断）
-    - Description: Her clothes seams unravel, splitting into shaped fabrics that fall apart, revealing her completely naked; the fabric pieces drop slowly, retaining their cutout forms;  
+    - Description: Her clothes seams unravel, splitting into shaped fabrics that fall apart, revealing her naked body; the fabric pieces drop slowly, retaining their cutout forms;  
 - 服が溶ける（分解）
-    - Description: Her clothes dissolve into sparkling particles, gradually becomes completely naked;
-    - Description: Her clothes dissolve into shimmering particles, gradually becomes completely naked; the dissolution starts from the edges and moves inward, like fabric melting into light;
+    - Description: Her clothes dissolve into sparkling particles, gradually revealing her naked body;
+    - Description: Her clothes dissolve into shimmering particles, gradually revealing her naked body; the dissolution starts from the edges and moves inward, like fabric melting into light;
 - 服が溶ける（酸）
     - Description: Her clothes erode with acid-like holes, becomes completely naked;
     - Description: Her clothes erode as if by acid, forming holes that spread randomly, becomes completely naked; the fabric dissolves completely, leaving no traces;
+- 服が溶ける（絵具）
+    - Description: Her jacket melts into vibrant liquid paint, dripping down her body, revealing her naked body; the colors stream slowly, fading into the floor;
 - 服が風によって裂かれる
     - Description: A sudden gust rips her clothes into fragments, scattering them, becomes completely naked;
     - Description: Sudden gust of wind tears her clothes into fragments, scattering them like pieces, becomes completely naked; the fabric pieces flutter briefly before disappearing;
@@ -35,11 +37,11 @@ Constraints: head orientation remains constant throughout the motion; Camera: fi
 - トランジションで徐々に脱げる
     - Description: Her outfit changes from underwear to lingerie to complete nudity with each strobing flash, and she poses like a fashion model with each outfit change.
 - ビームで服に穴が開く
-    - Description: A searing beam strikes her jacket, burning a large hole at the chest, revealing her unharmed upper body, breasts and nipples;
+    - Description: A searing beam strikes her jacket, burning a large hole at the chest, revealing her unharmed naked body, breasts and nipples;
 - 服が水にぬれて（ビニールのように）透明になる
-    - Description: As her clothes get wet, they become transparent like vinyl, gradually revealing her upper body, breasts, and nipples;
+    - Description: As her clothes get wet, they become transparent like vinyl, gradually revealing her naked body, breasts, and nipples;
 
 ### Partical Scene ideas
 
-- Scene 1/2: Her jacket blasts off in a burst of wind, vanishing instantly, revealing her upper body;
+- Scene 1/2: Her jacket blasts off in a burst of wind, vanishing instantly, revealing her naked body;
 - Scene 2/2: She spins gracefully, turning fully, ending with a poised stance;  

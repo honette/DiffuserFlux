@@ -1,6 +1,8 @@
 # 🚀 RunPod 上で Flux1.Kontact + Diffusers 環境構築手順
 
 - 秘密鍵はWSL上の `~/.ssh/id_runpod` に保存してパーミッション `600` にする
+- Podテンプレートは `runpod/pytorch:1.0.1-cu1281-torch280-ubuntu2404`
+- Expose HTTP Portsに8188を追加 `8188,8888` (外部アクセス用)
 
 - SSH接続、SCPダウンロード (アドレスは適宜変更）
 

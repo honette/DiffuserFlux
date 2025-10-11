@@ -44,7 +44,7 @@ log(f"📦 Total {args.total} files → {batches} batches")
 for i in range(batches):
     skip = i * args.limit
     cmd = (
-        f"cd /workspace/ComfyUI/scripts && "
+        f"cd /workspace/runpod-slim/ComfyUI/scripts && "
         f"python3 batch_i2v_resume.py --limit {args.limit} --skip {skip} --resume"
     )
 
@@ -69,7 +69,7 @@ for i in range(batches):
     rsync_cmd = [
         "rsync", "-avz", "--progress",
         "-e", f"ssh -p {port} -i {os.path.expanduser(args.key)}",
-        f"{args.user}@{ip}:/workspace/ComfyUI/video/ComfyUI/",
+        f"{args.user}@{ip}:/workspace/runpod-slim/ComfyUI/video/ComfyUI/",
         f"{local_outdir}/"
     ]
     log(f"⬇️ Rsync output: {' '.join(rsync_cmd)}")

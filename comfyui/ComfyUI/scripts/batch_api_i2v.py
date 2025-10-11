@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 import os, json, requests, time, argparse, datetime
 from PIL import Image
+import uuid
 
 # ==== 設定 ====
-WORKFLOW_PATH = "/workspace/ComfyUI/video_wan2_2_14B_i2v.json"
-IMAGE_DIR = "/workspace/ComfyUI/input_images"
+WORKFLOW_PATH = "/workspace/runpod-slim/ComfyUI/api-video_wan2_2_14B_i2v.json"
+IMAGE_DIR = "/workspace/runpod-slim/ComfyUI/input_images"
 API_URL = "http://127.0.0.1:8188/prompt"
-LOG_DIR = "/workspace/ComfyUI/logs"
+LOG_DIR = "/workspace/runpod-slim/ComfyUI/logs"
 
-POS_PROMPT = "A cinematic scene of a warrior standing under a glowing moon."
-NEG_PROMPT = "low quality, deformed, blurry, bad anatomy"
+POS_PROMPT = "Description: As soon as the video begins, She clothes fly off in an instant, she is completely naked including the lower body, Then she jumps little by little; Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: She is teenager, She has large nipples;"
+NEG_PROMPT = "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走"
 
 # ==== 引数 ====
 parser = argparse.ArgumentParser(description="Batch image-to-video queue script (with resume) for Wan2.2 on RunPod")
@@ -36,27 +37,32 @@ log(f"Args: skip={args.skip}, limit={args.limit}, resume={args.resume}")
 with open(WORKFLOW_PATH) as f:
     workflow = json.load(f)
 
-# ==== ノード検出 ====
-load_id = pos_id = neg_id = save_id = None
-for node in workflow["nodes"]:
-    t = node.get("type", "")
-    title = node.get("title", "").lower()
-    if t == "LoadImage" and load_id is None:
-        load_id = node["id"]
-    elif "positive" in title:
-        pos_id = node["id"]
-    elif "negative" in title:
-        neg_id = node["id"]
-    elif t == "SaveVideo":
-        save_id = node["id"]
-    # WanImageToVideo ノードも検出（解像度変更用）
-    elif t == "WanImageToVideo" and node.get("mode") == 4:
-        video_node_id = node["id"]
+# ==== ノードIDを直接指定（fp8_scaled 4Steps系統 / mode=4）====
+load_id = 97      # LoadImage
+pos_id = 93       # Positive CLIPTextEncode
+neg_id = 89       # Negative CLIPTextEncode
+save_id = 108      # SaveVideo
+video_node_id = 98 # WanImageToVideo
+
+# ==== ノードIDを直接指定（fp8_scaled系統 / mode=4）====
+# load_id = 62       # LoadImage（→ 63 の start_image に接続）
+# pos_id  = 6        # CLIPTextEncode (Positive)（→ 63 の positive に接続）
+# neg_id  = 7        # CLIPTextEncode (Negative)（→ 63 の negative に接続）
+# save_id = 61       # SaveVideo（→ 109 → 61 のVIDEOへ）
+# video_node_id = 63 # WanImageToVideo（widgets_values[0:2]が幅/高さ）
 
 log(f"Detected nodes → LoadImage:{load_id}, Positive:{pos_id}, Negative:{neg_id}, SaveVideo:{save_id}")
 
 if 'video_node_id' in locals():
     log(f"Detected video node for resizing: {video_node_id}")
+
+# 追加：配線検証
+def ensure_link(from_node, to_node, links):
+    for L in links:
+        # L = [link_id, from_node, from_slot, to_node, to_slot, "TYPE"]
+        if len(L) >= 6 and L[1] == from_node and L[3] == to_node:
+            return True
+    return False
 
 # ==== 入力画像 ====
 images = sorted([
@@ -105,30 +111,44 @@ for i, img in enumerate(images, start=1):
     try:
         with Image.open(os.path.join(IMAGE_DIR, img)) as im:
             w, h = im.size
-        for node in workflow["nodes"]:
-            if node.get("id") == video_node_id:
-                if h >= w:
-                    node["widgets_values"][0:2] = [640, 960]  # 縦長 or 正方形
-                    log(f"   ↳ portrait/square {w}x{h} → 640x960")
-                else:
-                    node["widgets_values"][0:2] = [960, 640]  # 横長
-                    log(f"   ↳ landscape {w}x{h} → 960x640")
+        ratio = w / h
+
+        if 0.9 <= ratio <= 1.1:
+            # ほぼ正方形
+            width, height = 640, 640
+            log(f"   ↳ square {w}x{h} → 640x640")
+        elif h > w:
+            # 縦長
+            width, height = 512, 768
+            log(f"   ↳ portrait {w}x{h} → 512x768")
+        else:
+            # 横長
+            width, height = 960, 640
+            log(f"   ↳ landscape {w}x{h} → 960x640")
+
+        # WanImageToVideo ノードに設定
+        workflow[str(video_node_id)]["inputs"]["width"] = width
+        workflow[str(video_node_id)]["inputs"]["height"] = height
+
     except Exception as e:
         log(f"   ⚠️ Could not adjust resolution for {img}: {e}")
 
-    # ノード設定
-    if load_id is not None:
-        workflow["nodes"][load_id]["widgets_values"][0] = img_path
-    if pos_id is not None:
-        workflow["nodes"][pos_id]["widgets_values"][0] = POS_PROMPT
-    if neg_id is not None:
-        workflow["nodes"][neg_id]["widgets_values"][0] = NEG_PROMPT
-    if save_id is not None:
-        workflow["nodes"][save_id]["widgets_values"][1] = out_name
-        workflow["nodes"][save_id]["widgets_values"][2] = "mp4"
+    # === ノードごとの入力設定 ===
+    # workflow[str(load_id)]["inputs"]["image"] = img_path
+    # workflow[str(load_id)]["inputs"]["image"] = img
+    workflow[str(load_id)]["inputs"]["image"] = f"/workspace/runpod-slim/ComfyUI/input_images/{img}"
+    workflow[str(pos_id)]["inputs"]["text"] = POS_PROMPT
+    workflow[str(neg_id)]["inputs"]["text"] = NEG_PROMPT
+    workflow[str(save_id)]["inputs"]["filename_prefix"] = f"video/i2v_{basename}"
+    workflow[str(save_id)]["inputs"]["format"] = "mp4"
+
+    # with open("debug_prompt.json", "w") as f:
+    #     json.dump(workflow, f, indent=2)
+    # log("📄 dumped current workflow to debug_prompt.json")
 
     try:
-        r = requests.post(API_URL, json=workflow)
+        payload = {"prompt": workflow, "client_id": str(uuid.uuid4())}
+        r = requests.post(API_URL, json=payload)
         if r.ok:
             log(f"  ✅ Queued successfully ({i}/{total})")
         else:

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os, json, requests, time, argparse, datetime
+from PIL import Image
 
 # ==== 設定 ====
 WORKFLOW_PATH = "/workspace/ComfyUI/video_wan2_2_14B_i2v.json"
@@ -48,8 +49,14 @@ for node in workflow["nodes"]:
         neg_id = node["id"]
     elif t == "SaveVideo":
         save_id = node["id"]
+    # WanImageToVideo ノードも検出（解像度変更用）
+    elif t == "WanImageToVideo" and node.get("mode") == 4:
+        video_node_id = node["id"]
 
 log(f"Detected nodes → LoadImage:{load_id}, Positive:{pos_id}, Negative:{neg_id}, SaveVideo:{save_id}")
+
+if 'video_node_id' in locals():
+    log(f"Detected video node for resizing: {video_node_id}")
 
 # ==== 入力画像 ====
 images = sorted([
@@ -93,6 +100,21 @@ for i, img in enumerate(images, start=1):
 
     img_path = f"input_images/{img}"
     log(f"[{i}/{total}] ▶ {img_path} → {out_name}.mp4")
+
+    # === 画像の縦横判定して出力サイズ変更 ===
+    try:
+        with Image.open(os.path.join(IMAGE_DIR, img)) as im:
+            w, h = im.size
+        for node in workflow["nodes"]:
+            if node.get("id") == video_node_id:
+                if h >= w:
+                    node["widgets_values"][0:2] = [640, 960]  # 縦長 or 正方形
+                    log(f"   ↳ portrait/square {w}x{h} → 640x960")
+                else:
+                    node["widgets_values"][0:2] = [960, 640]  # 横長
+                    log(f"   ↳ landscape {w}x{h} → 960x640")
+    except Exception as e:
+        log(f"   ⚠️ Could not adjust resolution for {img}: {e}")
 
     # ノード設定
     if load_id is not None:

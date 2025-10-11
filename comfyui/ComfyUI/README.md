@@ -1,0 +1,3 @@
+README.md
+自前の別のRunpod用リポジトリにスクリプトとか保存するから
+README書いて

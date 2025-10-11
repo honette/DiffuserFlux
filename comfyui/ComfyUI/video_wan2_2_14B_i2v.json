@@ -469,6 +469,19 @@
       ]
     },
     {
+      "id": 120,
+      "type": "ImageResize",
+      "pos": [80, 2100],
+      "size": [300, 120],
+      "inputs": [
+        { "name": "image", "type": "IMAGE", "link": 133 }
+      ],
+      "outputs": [
+        { "name": "IMAGE", "type": "IMAGE", "slot_index": 0 }
+      ],
+      "widgets_values": [640, 640, "fit", "black"]
+    },
+    {
       "id": 84,
       "type": "CLIPLoader",
       "pos": [

@@ -60,15 +60,8 @@ python3 download_wan_diffuser_model_for_comfyui.py
 - とりあえずこれ
 
 ```
-Description: As soon as the video begins, She clothes fly off in an instant, she is completely naked including the lower body, Then she jumps little by little;
+Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also nipples and pussy, Then The girls jumps little by little;
 Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: She is teenager, She has large nipples;
-```
-
-- 複数人対応
-
-```
-Description: As soon as the video begins, The girls's clothes fly off in an instant, The girls are completely naked including the lower body, Then The girls jumps little by little;
-Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: The girls are teenager, The girls have large nipples;
 ```
 
 ### Systemプロンプト
@@ -91,8 +84,7 @@ Description: As soon as the video begins, ????, then revealing her naked body, i
 ```
 
 - 服が弾け飛ぶ + 胸を揺らす
-    - Description: As soon as the video begins, The girls all clothes including underwear fly off in an instant, The girls are completely naked including the lower body, Then The girls jumps little by little;
-    - Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also pussy, Then The girls jumps little by little;
+    - Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also nipples and pussy, Then The girls jumps little by little;
 - 服が弾け飛ぶ + 乳揉み
     - Description: As soon as the video begins, her clothes fly off in an instant, she is completely naked, and she gathers her breasts together with her elbows;
     - Description: As soon as the video starts, her clothes fly off in an instant, she is completely naked, and she supports her breasts from underneath with her palms;

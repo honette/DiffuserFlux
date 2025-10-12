@@ -44,13 +44,6 @@ neg_id = 89       # Negative CLIPTextEncode
 save_id = 108      # SaveVideo
 video_node_id = 98 # WanImageToVideo
 
-# ==== ノードIDを直接指定（fp8_scaled系統 / mode=4）====
-# load_id = 62       # LoadImage（→ 63 の start_image に接続）
-# pos_id  = 6        # CLIPTextEncode (Positive)（→ 63 の positive に接続）
-# neg_id  = 7        # CLIPTextEncode (Negative)（→ 63 の negative に接続）
-# save_id = 61       # SaveVideo（→ 109 → 61 のVIDEOへ）
-# video_node_id = 63 # WanImageToVideo（widgets_values[0:2]が幅/高さ）
-
 log(f"Detected nodes → LoadImage:{load_id}, Positive:{pos_id}, Negative:{neg_id}, SaveVideo:{save_id}")
 
 if 'video_node_id' in locals():
@@ -123,8 +116,8 @@ for i, img in enumerate(images, start=1):
             log(f"   ↳ portrait {w}x{h} → 512x768")
         else:
             # 横長
-            width, height = 960, 640
-            log(f"   ↳ landscape {w}x{h} → 960x640")
+            width, height = 768, 512
+            log(f"   ↳ landscape {w}x{h} → 768x512")
 
         # WanImageToVideo ノードに設定
         workflow[str(video_node_id)]["inputs"]["width"] = width
@@ -134,17 +127,12 @@ for i, img in enumerate(images, start=1):
         log(f"   ⚠️ Could not adjust resolution for {img}: {e}")
 
     # === ノードごとの入力設定 ===
-    # workflow[str(load_id)]["inputs"]["image"] = img_path
-    # workflow[str(load_id)]["inputs"]["image"] = img
-    workflow[str(load_id)]["inputs"]["image"] = f"/workspace/runpod-slim/ComfyUI/input_images/{img}"
+    IMAGE_DIR = "/workspace/runpod-slim/ComfyUI/input_images"
+    workflow[str(load_id)]["inputs"]["image"] = os.path.join(IMAGE_DIR, img)
     workflow[str(pos_id)]["inputs"]["text"] = POS_PROMPT
     workflow[str(neg_id)]["inputs"]["text"] = NEG_PROMPT
     workflow[str(save_id)]["inputs"]["filename_prefix"] = f"video/i2v_{basename}"
     workflow[str(save_id)]["inputs"]["format"] = "mp4"
-
-    # with open("debug_prompt.json", "w") as f:
-    #     json.dump(workflow, f, indent=2)
-    # log("📄 dumped current workflow to debug_prompt.json")
 
     try:
         payload = {"prompt": workflow, "client_id": str(uuid.uuid4())}

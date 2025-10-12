@@ -11,7 +11,7 @@
 ```
 .
 ├── remote_batch_control.py   # ローカルからRunPodを制御するスクリプト
-├── batch_i2v.py              # RunPod内で実際にComfyUI APIを叩くスクリプト
+├── batch_api_i2v.py              # RunPod内で実際にComfyUI APIを叩くスクリプト
 ├── video_wan2_2_14B_i2v.json # ComfyUIワークフローテンプレート
 ├── input_images/             # 処理対象画像を置く
 ├── output/                   # rsyncで取得される生成動画
@@ -33,7 +33,7 @@
 2. 下記の2ファイルを配置
     
     ```
-    /workspace/runpod-slim/ComfyUI/scripts/batch_i2v.py
+    /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py
     /workspace/runpod-slim/ComfyUI/video_wan2_2_14B_i2v.json
     ```
     
@@ -71,7 +71,7 @@
     
     ✅ 実行内容：
     
-    - `batch_i2v.py` をSSH経由で呼び出し
+    - `batch_api_i2v.py` をSSH経由で呼び出し
     - 20枚ずつ自動で処理（limit=20固定）
     - 各バッチ終了後に rsync で動画をローカルへ同期
     - resume も常に有効（中断しても続きから再開）
@@ -101,7 +101,7 @@
 
 ## 🧩 各スクリプトの役割
 
-### `batch_i2v.py`（RunPod側）
+### `batch_api_i2v.py`（RunPod側）
 
 - ComfyUI の API（ポート8188）に直接リクエストを送る。
 - 画像を順に処理し、
@@ -112,7 +112,7 @@
 実行例（Pod内で）：
 
 ```bash
-python3 /workspace/runpod-slim/ComfyUI/scripts/batch_i2v.py --limit 20 --skip 0
+python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 20 --skip 0
 
 ```
 
@@ -120,7 +120,7 @@ python3 /workspace/runpod-slim/ComfyUI/scripts/batch_i2v.py --limit 20 --skip 0
 
 ### `remote_batch_control.py`（ローカル側）
 
-- SSH 経由で `batch_i2v.py` を複数回実行。
+- SSH 経由で `batch_api_i2v.py` を複数回実行。
 - 20枚ずつ順番に処理、バッチ終了ごとに結果をダウンロード。
 
 実行例（ローカルPC）：
@@ -145,7 +145,7 @@ python3 remote_batch_control.py 63.141.33.29:22020 --total 100
 ```
 🕓 Start 2025-10-11 | Target=63.141.33.29:22020
 📦 Total 100 files → 5 batches
-🚀 [Batch 1/5] Executing: batch_i2v.py --limit 20 --skip 0 --resume
+🚀 [Batch 1/5] Executing: batch_api_i2v.py --limit 20 --skip 0 --resume
 [1] cat001.jpg: portrait/square 1080x1920 → 640x960
 ✅ Batch 1/5 completed OK
 ⬇️ Rsync output: rsync -az ...

@@ -5,6 +5,8 @@
 ## セットアップ
 
 - モデルのダウンロード（ターミナルから）
+    - Runpodが起動し、ターミナルが使えるようになったら作業
+    - ComfyUIの起動に10分以上かかるので、その間にダウンロードは余裕で終わる
 
 ```bash
 cd /workspace
@@ -13,6 +15,36 @@ cd DiffuserFlux/comfyui
 pip install tqdm
 python3 download_wan_diffuser_model_for_comfyui.py
 ```
+
+## 手動バッチ実行
+
+- Runpodからファイルマネージャを開き、 `/workspace/runpod-slim/ComfyUI/` 配下にファイルをアップロード
+    - DiffuserFlux\comfyui\ComfyUI\api-video_wan2_2_14B_i2v.json
+    - DiffuserFlux\comfyui\ComfyUI\input_images
+    - DiffuserFlux\comfyui\ComfyUI\scripts
+- `input_images` にバッチ実行する画像ファイルを入れる
+- バッチファイルのセットアップと実行
+    - ** ComfyUIのGUIの起動を確認してから作業 **
+    ```bash
+    cd /workspace/runpod-slim/ComfyUI/scripts/
+    pip install -r requirements.txt
+    apt update && apt install -y rsync
+    ```
+    - 最初に一件だけで実行したほうが良いかもしれない。最初の一件だけはモデルのロードで5分くらい余分に掛かる
+    ```bash
+    python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 1 --skip 0
+    python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 20 --skip 0
+    ```
+
+## 動画のダウンロード
+
+- `/workspace/runpod-slim/ComfyUI/output/video` の下に生成されている
+    - ファイルマネージャでzipにしてダウンロードが楽
+    - 大量バッチなら `remote_batch_control.py`
+    - rsyncを使うならwsl上で `ssh_helper` でコマンドをチェック
+    ```bash
+    sh ssh_helper.sh 69.30.85.57:22092
+    ```
 
 ## プロンプト
 
@@ -68,17 +100,21 @@ Constraints: head orientation remains constant throughout the motion; Camera: Zo
     - Description: Her clothes erode with acid-like holes, becomes completely naked;
     - Description: Her clothes erode as if by acid, forming holes that spread randomly, becomes completely naked; the fabric dissolves completely, leaving no traces;
 - 服が溶ける（絵具）
-    - Description: Her jacket melts into vibrant liquid paint, dripping down her body, revealing her naked body; the colors stream slowly, fading into the floor;
+    - Description: Her clothes melts into vibrant liquid paint, dripping down her body, revealing her naked body; the colors stream slowly, fading into the floor;
+    Description: Her clothes melts into vibrant liquid paint, dripping down her body, revealing her naked body to become nude, enjoy;
 - 服が蝶となり飛んでいく
     - Description: Her clothes transforms into countless butterflies in a magical flourish, fluttering away in a vibrant swarm, becomes completely naked; the butterflies scatter and vanish;
 - トランジションで徐々に脱げる
     - Description: Her outfit changes from underwear to lingerie to complete nudity with each strobing flash, and she poses like a fashion model with each outfit change.
 - ビームで服に穴が開く
-    - Description: A searing beam strikes her jacket, burning a large hole at the chest, revealing her unharmed naked body, breasts and nipples;
+    - Description: A searing beam strikes her clothes, burning a large hole at the chest, revealing her unharmed naked body, breasts and nipples;
 - 服が水にぬれて（ビニールのように）透明になる
     - Description: As her clothes get wet, they become transparent like vinyl, gradually revealing her naked body, breasts, and nipples;
 
+Description: As her clothes get wet, they become transparent like vinyl, gradually revealing her naked body, breasts, and nipples;
+Description: As soon as the video starts, The chest of her dress bursts, revealing her breasts and nipples.
+
 ### Partical Scene ideas
 
-- Scene 1/2: Her jacket blasts off in a burst of wind, vanishing instantly, revealing her naked body;
+- Scene 1/2: Her clothes blasts off in a burst of wind, vanishing instantly, revealing her naked body;
 - Scene 2/2: She spins gracefully, turning fully, ending with a poised stance;  

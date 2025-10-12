@@ -23,6 +23,10 @@ python3 download_wan_diffuser_model_for_comfyui.py
     - DiffuserFlux\comfyui\ComfyUI\input_images
     - DiffuserFlux\comfyui\ComfyUI\scripts
 - `input_images` にバッチ実行する画像ファイルを入れる
+- ComfyUIのGUIをRunpodから開く
+    - Runpodのログにセットアップ完了的なメッセージが出てる
+    - ワークフローはテンプレートから `Wan2.2 14B FP8 Image to Video` のやつを選択
+    - 自分のやつでもOK `comfyui\ComfyUI\video_wan2_2_14B_i2v.json`
 - バッチファイルのセットアップと実行
     - ** ComfyUIのGUIの起動を確認してから作業 **
     ```bash
@@ -31,6 +35,7 @@ python3 download_wan_diffuser_model_for_comfyui.py
     apt update && apt install -y rsync
     ```
     - 最初に一件だけで実行したほうが良いかもしれない。最初の一件だけはモデルのロードで5分くらい余分に掛かる
+        - 注意: ワークフローがデフォルトでキュー100件までの設定
     ```bash
     python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 1 --skip 0
     python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 20 --skip 0

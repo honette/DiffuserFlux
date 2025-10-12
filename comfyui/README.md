@@ -41,6 +41,10 @@ python3 download_wan_diffuser_model_for_comfyui.py
     python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 20 --skip 0
     ```
 
+## GUI設定
+
+- ファイル名設定は変えたほうが良い `GUI_%date:yyyy-MM-dd_HH-mm%_%model%`
+
 ## 動画のダウンロード
 
 - `/workspace/runpod-slim/ComfyUI/output/video` の下に生成されている
@@ -63,7 +67,7 @@ Constraints: head orientation remains constant throughout the motion; Camera: fi
 - 複数人対応
 
 ```
-Description: As soon as the video begins, The girls clothes fly off in an instant, The girls are completely naked including the lower body, Then The girls jumps little by little;
+Description: As soon as the video begins, The girls's clothes fly off in an instant, The girls are completely naked including the lower body, Then The girls jumps little by little;
 Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: The girls are teenager, The girls have large nipples;
 ```
 
@@ -89,16 +93,16 @@ Description: As soon as the video begins, ????, then revealing her naked body, i
 - 服が弾け飛ぶ + 胸を揺らす
     - Description: As soon as the video begins, She clothes fly off in an instant, she is completely naked including the lower body, Then she jumps little by little;
 - 服が弾け飛ぶ (複数人対応)
-    - As soon as the video begins, The girls clothes fly off in an instant, The girls are completely naked including the lower body, Then The girls jumps little by little;
+    - As soon as the video begins, The girls's clothes fly off in an instant, The girls are completely naked including the lower body, Then The girls jumps little by little;
 - 服が弾け飛ぶ + 乳揉み
     - Description: As soon as the video begins, her clothes fly off in an instant, she is completely naked, and she gathers her breasts together with her elbows;
     - Description: As soon as the video starts, her clothes fly off in an instant, she is completely naked, and she supports her breasts from underneath with her palms;
 - 服が弾け飛ぶ + 尻を向ける
-    - Description: As soon as the video begins, her clothes fly off in an instant, she is completely naked, becomes full nude, Then she turns her ass towards me;
+    - Description: As soon as the video starts, her clothes are blown off in an instant and she is completely naked, completely nude, and then she quickly turns her ass towards me;
 - 自分で脱ぐ
     - Description: As soon as the video starts, she quickly lifts her clothes to reveal her breasts, nipples;
 - 頭から水をかぶって服が流される
-    - Description: As soon as the video begins, water pours down on her head, making her soaked clothes transparent like vinyl, revealing her breasts and nipples.
+    - Description: As soon as the video begins, water pours down on her head, washing away her clothes and leaving her completely naked, including her lower body;
 
 ### Sceneプロンプト (未検証)
 
@@ -109,8 +113,16 @@ Description: As soon as the video begins, ????, then revealing her naked body, i
 
 Description: As her clothes get wet, they become transparent like vinyl, gradually revealing her naked body, breasts, and nipples;
 Description: As soon as the video starts, The chest of her dress bursts, revealing her breasts and nipples.
-
+Description: In the slideshow video, she is completely naked in the center of the screen and takes various sexy poses.
 ### Partical Scene ideas
 
-- Scene 1/2: Her clothes blasts off in a burst of wind, vanishing instantly, revealing her naked body;
-- Scene 2/2: She spins gracefully, turning fully, ending with a poised stance;  
+```
+Scene 1/3: As soon as the video begins, The girls clothes fly off in an instant, The girls are completely naked including the lower body, also nipples;
+Scene 2/3: She turns her ass towards me;
+Scene 3/3: She faces forward, leans forward and presses her breasts together;
+Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: The girls are teenager, The girls have large nipples;
+
+Scene 1/2: She takes off her clothes and is in her underwear;
+Scene 2/2: She takes off her underwear, She is completely naked including the lower body, also nipples;
+Constraints: Videos are at 2x speed; Camera: fixed front, The composition does not change; Mood: The girls are teenager, The girls have large nipples;
+```

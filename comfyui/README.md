@@ -63,7 +63,7 @@ Constraints: head orientation remains constant throughout the motion; Camera: fi
 - 複数人対応
 
 ```
-Description: As soon as the video begins, The girls clothes fly off in an instant, The girls is completely naked including the lower body, Then The girls jumps little by little;
+Description: As soon as the video begins, The girls clothes fly off in an instant, The girls are completely naked including the lower body, Then The girls jumps little by little;
 Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: The girls are teenager, The girls have large nipples;
 ```
 
@@ -81,40 +81,31 @@ Constraints: head orientation remains constant throughout the motion; Camera: Zo
 
 ### Sceneプロンプト
 
-- 服が弾け飛ぶ
-    - Description: As soon as the video begins, her clothes fly off in an instant, she is completely naked, becomes full nude;
+- BASE
+```
+Description: As soon as the video begins, ????, then revealing her naked body, including the lower body;
+```
+
+- 服が弾け飛ぶ + 胸を揺らす
+    - Description: As soon as the video begins, She clothes fly off in an instant, she is completely naked including the lower body, Then she jumps little by little;
+- 服が弾け飛ぶ (複数人対応)
+    - As soon as the video begins, The girls clothes fly off in an instant, The girls are completely naked including the lower body, Then The girls jumps little by little;
 - 服が弾け飛ぶ + 乳揉み
     - Description: As soon as the video begins, her clothes fly off in an instant, she is completely naked, and she gathers her breasts together with her elbows;
     - Description: As soon as the video starts, her clothes fly off in an instant, she is completely naked, and she supports her breasts from underneath with her palms;
 - 服が弾け飛ぶ + 尻を向ける
     - Description: As soon as the video begins, her clothes fly off in an instant, she is completely naked, becomes full nude, Then she turns her ass towards me;
-- 服が弾け飛ぶ + 胸を揺らす
-    - Description: As soon as the video begins, She clothes fly off in an instant, she is completely naked including the lower body, Then she jumps little by little;
 - 自分で脱ぐ
-    - Description: As soon as the video starts, she quickly lifts her clothes to reveal her breasts;
+    - Description: As soon as the video starts, she quickly lifts her clothes to reveal her breasts, nipples;
+- 頭から水をかぶって服が流される
+    - Description: As soon as the video begins, water pours down on her head, making her soaked clothes transparent like vinyl, revealing her breasts and nipples.
 
 ### Sceneプロンプト (未検証)
 
-- 第三者がすれ違いざまに脱がす（すれ違いざまに)
-    - Description: She stands still as an unseen figure swiftly crosses the frame from right to left, stripping her clothes to become completely naked;
-    - Description: She stands still as an unseen figure swiftly passes from the right side of the frame, tearing away her clothes in a single fluid motion, becomes completely naked; the figure exits the frame to the left;
-- 服が溶ける（分解）
-    - Description: Her clothes dissolve into sparkling particles, gradually revealing her naked body;
-    - Description: Her clothes dissolve into shimmering particles, gradually revealing her naked body; the dissolution starts from the edges and moves inward, like fabric melting into light;
-- 服が溶ける（酸）
-    - Description: Her clothes erode with acid-like holes, becomes completely naked;
-    - Description: Her clothes erode as if by acid, forming holes that spread randomly, becomes completely naked; the fabric dissolves completely, leaving no traces;
-- 服が溶ける（絵具）
-    - Description: Her clothes melts into vibrant liquid paint, dripping down her body, revealing her naked body; the colors stream slowly, fading into the floor;
-    Description: Her clothes melts into vibrant liquid paint, dripping down her body, revealing her naked body to become nude, enjoy;
-- 服が蝶となり飛んでいく
-    - Description: Her clothes transforms into countless butterflies in a magical flourish, fluttering away in a vibrant swarm, becomes completely naked; the butterflies scatter and vanish;
-- トランジションで徐々に脱げる
-    - Description: Her outfit changes from underwear to lingerie to complete nudity with each strobing flash, and she poses like a fashion model with each outfit change.
-- ビームで服に穴が開く
-    - Description: A searing beam strikes her clothes, burning a large hole at the chest, revealing her unharmed naked body, breasts and nipples;
-- 服が水にぬれて（ビニールのように）透明になる
-    - Description: As her clothes get wet, they become transparent like vinyl, gradually revealing her naked body, breasts, and nipples;
+- 第三者が脱がす
+    - Description: As soon as the video starts, A third person's arm reaches out from under the screen and rips her clothes off in an instant, she is completely naked, becomes full nude;
+- 温泉に入ろう
+    - As soon as the video starts, the background changes to a hot spring, and at the same time she becomes completely naked and soaks in the hot spring.
 
 Description: As her clothes get wet, they become transparent like vinyl, gradually revealing her naked body, breasts, and nipples;
 Description: As soon as the video starts, The chest of her dress bursts, revealing her breasts and nipples.

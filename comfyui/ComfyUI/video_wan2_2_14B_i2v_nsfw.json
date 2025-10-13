@@ -1,8 +1,8 @@
 {
   "id": "ec7da562-7e21-4dac-a0d2-f4441e1efd3b",
   "revision": 0,
-  "last_node_id": 115,
-  "last_link_id": 214,
+  "last_node_id": 117,
+  "last_link_id": 216,
   "nodes": [
     {
       "id": 38,
@@ -1822,6 +1822,78 @@
         "auto",
         "auto"
       ]
+    },
+    {
+      "id": 116,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        650,
+        -230
+      ],
+      "size": [
+        280,
+        82
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 190
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            215
+          ]
+        }
+      ],
+      "widgets_values": [
+        "lora_wan_nsfw_high.safetensors",
+        1.0
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.49"
+      }
+    },
+    {
+      "id": 117,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        650,
+        -100
+      ],
+      "size": [
+        280,
+        82
+      ],
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 189
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            216
+          ]
+        }
+      ],
+      "widgets_values": [
+        "lora_wan_nsfw_low.safetensors",
+        1.0
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.49"
+      }
     }
   ],
   "links": [
@@ -2090,16 +2162,16 @@
       "IMAGE"
     ],
     [
-      189,
-      102,
+      216,
+      117,
       0,
       103,
       0,
       "MODEL"
     ],
     [
-      190,
-      101,
+      215,
+      116,
       0,
       104,
       0,
@@ -2160,6 +2232,22 @@
       61,
       0,
       "VIDEO"
+    ],
+    [
+      215,
+      116,
+      0,
+      104,
+      0,
+      "MODEL"
+    ],
+    [
+      216,
+      117,
+      0,
+      103,
+      0,
+      "MODEL"
     ]
   ],
   "groups": [

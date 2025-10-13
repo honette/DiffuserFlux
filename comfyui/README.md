@@ -31,17 +31,17 @@ python3 download_wan_lora.py
     - 自分のやつでもOK `comfyui\ComfyUI\video_wan2_2_14B_i2v.json`
 - バッチファイルのセットアップと実行
     - ** ComfyUIのGUIの起動を確認してから作業 **
-    ```bash
-    cd /workspace/runpod-slim/ComfyUI/scripts/
-    pip install -r requirements.txt
-    apt update && apt install -y rsync
-    ```
+```bash
+cd /workspace/runpod-slim/ComfyUI/scripts/
+pip install -r requirements.txt
+apt update && apt install -y rsync
+```
     - 最初に一件だけで実行したほうが良いかもしれない。最初の一件だけはモデルのロードで5分くらい余分に掛かる
         - 注意: ワークフローがデフォルトでキュー100件までの設定
-    ```bash
-    python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 1 --skip 0
-    python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 20 --skip 0
-    ```
+```bash
+python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 1 --skip 0
+python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 20 --skip 0
+```
 
 ## GUI設定
 
@@ -62,7 +62,7 @@ python3 download_wan_lora.py
 - とりあえずこれ
 
 ```
-Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also nipples and pussy, Then The girls jumps little by little;
+Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also nipples, Then girls follow the rhythm of the music;
 Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: She is teenager, She has large nipples;
 ```
 
@@ -85,7 +85,9 @@ Constraints: head orientation remains constant throughout the motion; Camera: Zo
 Description: As soon as the video begins, ????, then revealing her naked body, including the lower body;
 ```
 
-- 服が弾け飛ぶ + 胸を揺らす
+- 服が弾け飛ぶ + 胸を揺らす(リズム)
+    - Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also nipples, Then girls follow the rhythm of the music;
+- 服が弾け飛ぶ + 胸を揺らす(小ジャンプ)
     - Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also nipples and pussy, Then The girls jumps little by little;
 - 服が弾け飛ぶ + 乳揉み
     - Description: As soon as the video begins, her clothes fly off in an instant, she is completely naked, and she gathers her breasts together with her elbows;

@@ -1824,46 +1824,6 @@
       ]
     },
     {
-      "id": 120,
-      "type": "LoraLoaderModelOnly",
-      "pos": [
-        616.3453369140625,
-        1.1546534299850464
-      ],
-      "size": [
-        270,
-        82
-      ],
-      "flags": {},
-      "order": 26,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 223
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            224
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.64",
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "lora_wan_nsfw_low.safetensors",
-        0.8
-      ]
-    },
-    {
       "id": 119,
       "type": "LoraLoaderModelOnly",
       "pos": [
@@ -1900,7 +1860,47 @@
       },
       "widgets_values": [
         "lora_wan_nsfw_high.safetensors",
-        0.8
+        0.6
+      ]
+    },
+    {
+      "id": 120,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        616.3453369140625,
+        1.1546534299850464
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 223
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            224
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.64",
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "lora_wan_nsfw_low.safetensors",
+        0.6
       ]
     }
   ],

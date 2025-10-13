@@ -46,7 +46,7 @@
   "86": {
     "inputs": {
       "add_noise": "enable",
-      "noise_seed": 88712655370263,
+      "noise_seed": 138073435077572,
       "steps": 4,
       "cfg": 1,
       "sampler_name": "euler",
@@ -116,7 +116,7 @@
   },
   "93": {
     "inputs": {
-      "text": "Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also nipples and pussy, Then The girls jumps little by little;\nConstraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: She is teenager, She has large nipples;",
+      "text": "The white dragon warrior stands still, eyes full of determination and strength. The camera slowly moves closer or circles around the warrior, highlighting the powerful presence and heroic spirit of the character.",
       "clip": [
         "84",
         0
@@ -162,7 +162,7 @@
   },
   "97": {
     "inputs": {
-      "image": "sakaki_mako-016.png"
+      "image": "input-18.jpg"
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -171,8 +171,8 @@
   },
   "98": {
     "inputs": {
-      "width": 512,
-      "height": 768,
+      "width": 640,
+      "height": 640,
       "length": 81,
       "batch_size": 1,
       "positive": [
@@ -229,7 +229,7 @@
     "inputs": {
       "shift": 5.000000000000001,
       "model": [
-        "120",
+        "102",
         0
       ]
     },
@@ -242,7 +242,7 @@
     "inputs": {
       "shift": 5.000000000000001,
       "model": [
-        "119",
+        "101",
         0
       ]
     },
@@ -256,7 +256,6 @@
       "filename_prefix": "video/ComfyUI",
       "format": "auto",
       "codec": "auto",
-      "video-preview": "",
       "video": [
         "94",
         0
@@ -265,34 +264,6 @@
     "class_type": "SaveVideo",
     "_meta": {
       "title": "ビデオを保存"
-    }
-  },
-  "119": {
-    "inputs": {
-      "lora_name": "lora_wan_nsfw_high.safetensors",
-      "strength_model": 1,
-      "model": [
-        "101",
-        0
-      ]
-    },
-    "class_type": "LoraLoaderModelOnly",
-    "_meta": {
-      "title": "LoRAローダーモデルのみ"
-    }
-  },
-  "120": {
-    "inputs": {
-      "lora_name": "lora_wan_nsfw_low.safetensors",
-      "strength_model": 1,
-      "model": [
-        "102",
-        0
-      ]
-    },
-    "class_type": "LoraLoaderModelOnly",
-    "_meta": {
-      "title": "LoRAローダーモデルのみ"
     }
   }
 }

@@ -565,6 +565,52 @@
       ]
     },
     {
+      "id": 97,
+      "type": "LoadImage",
+      "pos": [
+        70,
+        400
+      ],
+      "size": [
+        315,
+        314.0001220703125
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            186
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "LoadImage",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "input-18.jpg",
+        "image"
+      ]
+    },
+    {
       "id": 95,
       "type": "UNETLoader",
       "pos": [
@@ -576,7 +622,7 @@
         82
       ],
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -623,7 +669,7 @@
         82
       ],
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -869,7 +915,7 @@
         180
       ],
       "flags": {},
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -899,7 +945,7 @@
         314
       ],
       "flags": {},
-      "order": 9,
+      "order": 10,
       "mode": 4,
       "inputs": [],
       "outputs": [
@@ -945,7 +991,7 @@
         110
       ],
       "flags": {},
-      "order": 10,
+      "order": 11,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -974,7 +1020,7 @@
         88
       ],
       "flags": {},
-      "order": 11,
+      "order": 12,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -1038,6 +1084,144 @@
       ]
     },
     {
+      "id": 98,
+      "type": "WanImageToVideo",
+      "pos": [
+        530,
+        530
+      ],
+      "size": [
+        342.5999755859375,
+        210
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 183
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 184
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 185
+        },
+        {
+          "name": "clip_vision_output",
+          "shape": 7,
+          "type": "CLIP_VISION_OUTPUT",
+          "link": null
+        },
+        {
+          "name": "start_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 186
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            168,
+            172
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "slot_index": 1,
+          "links": [
+            169,
+            173
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "slot_index": 2,
+          "links": [
+            174
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "WanImageToVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        640,
+        640,
+        81,
+        1
+      ]
+    },
+    {
+      "id": 94,
+      "type": "CreateVideo",
+      "pos": [
+        1350,
+        460
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 182
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            197
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "CreateVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        16
+      ]
+    },
+    {
       "id": 87,
       "type": "VAEDecode",
       "pos": [
@@ -1086,6 +1270,44 @@
       "widgets_values": []
     },
     {
+      "id": 108,
+      "type": "SaveVideo",
+      "pos": [
+        1690,
+        -250
+      ],
+      "size": [
+        890,
+        988
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 197
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.49",
+        "Node name for S&R": "SaveVideo",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.1",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ]
+    },
+    {
       "id": 115,
       "type": "Note",
       "pos": [
@@ -1097,7 +1319,7 @@
         100
       ],
       "flags": {},
-      "order": 12,
+      "order": 13,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -1172,7 +1394,7 @@
       },
       "widgets_values": [
         "enable",
-        806904401549350,
+        138073435077572,
         "randomize",
         4,
         1,
@@ -1474,7 +1696,7 @@
       },
       "widgets_values": [
         "enable",
-        437559770188986,
+        306189419888845,
         "randomize",
         20,
         3.5,
@@ -1535,7 +1757,7 @@
         530
       ],
       "flags": {},
-      "order": 13,
+      "order": 14,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -1552,56 +1774,6 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
-    },
-    {
-      "id": 94,
-      "type": "CreateVideo",
-      "pos": [
-        1350,
-        460
-      ],
-      "size": [
-        270,
-        78
-      ],
-      "flags": {},
-      "order": 34,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 182
-        },
-        {
-          "name": "audio",
-          "shape": 7,
-          "type": "AUDIO",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "VIDEO",
-          "type": "VIDEO",
-          "links": [
-            197
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.45",
-        "Node name for S&R": "CreateVideo",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "version": "7.1",
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": [
-        16
-      ]
     },
     {
       "id": 93,
@@ -1646,182 +1818,10 @@
         }
       },
       "widgets_values": [
-        "Description: They are dancing!;"
+        "She waving her hands."
       ],
       "color": "#232",
       "bgcolor": "#353"
-    },
-    {
-      "id": 98,
-      "type": "WanImageToVideo",
-      "pos": [
-        530,
-        530
-      ],
-      "size": [
-        342.5999755859375,
-        210
-      ],
-      "flags": {},
-      "order": 24,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 183
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 184
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 185
-        },
-        {
-          "name": "clip_vision_output",
-          "shape": 7,
-          "type": "CLIP_VISION_OUTPUT",
-          "link": null
-        },
-        {
-          "name": "start_image",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 186
-        }
-      ],
-      "outputs": [
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "slot_index": 0,
-          "links": [
-            168,
-            172
-          ]
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "slot_index": 1,
-          "links": [
-            169,
-            173
-          ]
-        },
-        {
-          "name": "latent",
-          "type": "LATENT",
-          "slot_index": 2,
-          "links": [
-            174
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.45",
-        "Node name for S&R": "WanImageToVideo",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "version": "7.1",
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": [
-        768,
-        512,
-        81,
-        1
-      ]
-    },
-    {
-      "id": 97,
-      "type": "LoadImage",
-      "pos": [
-        70,
-        400
-      ],
-      "size": [
-        315,
-        314.0001220703125
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            186
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "slot_index": 1,
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.45",
-        "Node name for S&R": "LoadImage",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "version": "7.1",
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": [
-        "VS--YouTube-532202520250921OA-17’52”.jpg",
-        "image"
-      ]
-    },
-    {
-      "id": 108,
-      "type": "SaveVideo",
-      "pos": [
-        1690,
-        -250
-      ],
-      "size": [
-        890,
-        988
-      ],
-      "flags": {},
-      "order": 36,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "video",
-          "type": "VIDEO",
-          "link": 197
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.49",
-        "Node name for S&R": "SaveVideo",
-        "ue_properties": {
-          "widget_ue_connectable": {},
-          "version": "7.1",
-          "input_ue_unconnectable": {}
-        }
-      },
-      "widgets_values": [
-        "video/gui",
-        "auto",
-        "auto"
-      ]
     }
   ],
   "links": [
@@ -2310,10 +2310,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5989500000000006,
+      "scale": 0.7972024500000008,
       "offset": [
-        320.91058801681936,
-        625.1884701953761
+        463.22509649701016,
+        454.18769251574537
       ]
     },
     "frontendVersion": "1.27.10",

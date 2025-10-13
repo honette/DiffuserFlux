@@ -24,7 +24,7 @@ python3 download_wan_lora.py
     - DiffuserFlux\comfyui\ComfyUI\api-video_wan2_2_14B_i2v.json
     - DiffuserFlux\comfyui\ComfyUI\input_images
     - DiffuserFlux\comfyui\ComfyUI\scripts
-- `input_images` にバッチ実行する画像ファイルを入れる
+- File Manager(admin / adminadmin12)で`input_images` にバッチ実行する画像ファイルを入れる
 - ComfyUIのGUIをRunpodから開く
     - Runpodのログにセットアップ完了的なメッセージが出てる
     - ワークフローはテンプレートから `Wan2.2 14B FP8 Image to Video` のやつを選択

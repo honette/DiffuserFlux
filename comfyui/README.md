@@ -14,6 +14,8 @@ git clone https://github.com/honette/DiffuserFlux.git
 cd DiffuserFlux/comfyui
 pip install tqdm
 python3 download_wan_diffuser_model_for_comfyui.py
+pip install gdown
+python3 download_wan_lora.py
 ```
 
 ## 手動バッチ実行

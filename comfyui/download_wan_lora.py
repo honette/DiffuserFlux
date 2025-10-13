@@ -5,8 +5,8 @@ url = "https://drive.google.com/uc?id=1oCpmSoG8fcOaZ7iaSyl0eSw8JneOo5DO"
 output = "/workspace/DiffuserFlux/lora_wan_nsfw_high.safetensors"
 gdown.download(url, output, quiet=False)
 
-# WAN General NSFW model (NSFW-22-H-e8)
-url = "https://drive.google.com/uc?id=1NCYbONFzYvWHSjpWzYGZDUeUkD3"
+# WAN General NSFW model (NSFW-22-L-e8)
+url = "https://drive.google.com/uc?id=1NCYbONFzYvWHSjpWzYGZDUeUkD3-WbjO"
 output = "/workspace/DiffuserFlux/lora_wan_nsfw_low.safetensors"
 gdown.download(url, output, quiet=False)
 

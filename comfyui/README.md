@@ -12,9 +12,8 @@
 cd /workspace
 git clone https://github.com/honette/DiffuserFlux.git
 cd DiffuserFlux/comfyui
-pip install tqdm
+pip install tqdm gdown
 python3 download_wan_diffuser_model_for_comfyui.py
-pip install gdown
 python3 download_wan_lora.py
 ```
 
@@ -34,7 +33,7 @@ python3 download_wan_lora.py
 ```bash
 cd /workspace/runpod-slim/ComfyUI/scripts/
 pip install -r requirements.txt
-apt update && apt install -y rsync
+apt update && apt install -y rsync vim
 ```
     - 最初に一件だけで実行したほうが良いかもしれない。最初の一件だけはモデルのロードで5分くらい余分に掛かる
         - 注意: ワークフローがデフォルトでキュー100件までの設定
@@ -45,7 +44,8 @@ python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 20 --ski
 
 ## GUI設定
 
-- ファイル名設定は変えたほうが良い `GUI_%date:yyyy-MM-dd_HH-mm%_%model%`
+- ファイル名設定は変えたほうが良い(ただしプレフィックスがうまくいかないから手動) `gui_2025102500`
+- ほんとはこうしたい `GUI_%date:yyyy-MM-dd_HH-mm%_%model%`
 
 ## 動画のダウンロード
 
@@ -65,6 +65,10 @@ python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 20 --ski
 Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also nipples, Then girls follow the rhythm of the music;
 Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: She is teenager, She has large nipples;
 ```
+
+Description: As soon as the video begins, The girls's unzip worn items to expose her breasts and nipples, then she speaks;
+Description: As soon as the video begins, The girls's change into a micro-bikini in an instant;
+Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: She is teenager, She has large nipples;
 
 ### Systemプロンプト
 
@@ -89,6 +93,8 @@ Description: As soon as the video begins, ????, then revealing her naked body, i
     - Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also nipples, Then girls follow the rhythm of the music;
 - 服が弾け飛ぶ + 胸を揺らす(小ジャンプ)
     - Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also nipples and pussy, Then The girls jumps little by little;
+- しれっと脱ぐ
+    - Description: As soon as the video starts, the girls bare their skin and show off their breasts and nipples;
 - 服が弾け飛ぶ + 乳揉み
     - Description: As soon as the video begins, her clothes fly off in an instant, she is completely naked, and she gathers her breasts together with her elbows;
     - Description: As soon as the video starts, her clothes fly off in an instant, she is completely naked, and she supports her breasts from underneath with her palms;

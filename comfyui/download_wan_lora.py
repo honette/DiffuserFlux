@@ -10,12 +10,12 @@ url = "https://drive.google.com/uc?id=1NCYbONFzYvWHSjpWzYGZDUeUkD3-WbjO"
 output = "/workspace/runpod-slim/ComfyUI/models/loras/lora_wan_nsfw_low.safetensors"
 gdown.download(url, output, quiet=False)
 
-# Pov Missionary High
-# url = "https://drive.google.com/uc?id=1AGtKAFoDmnz0huXuDqOqxXzASfsSSiUg"
-# output = "/workspace/runpod-slim/ComfyUI/models/loras/lora_wan_pov_high.safetensors"
-# gdown.download(url, output, quiet=False)
+# DR34ML4Y_I2V_14B_HIGH
+url = "https://drive.google.com/uc?id=1MA_YbTPghda0Np1LKRo3btXpzKx0RtMW"
+output = "/workspace/runpod-slim/ComfyUI/models/loras/lora_wan_pov_high.safetensors"
+gdown.download(url, output, quiet=False)
 
-# Pov Missionary Loe
-# url = "https://drive.google.com/uc?id=1-2Dt-EcJvZ1-0SXV3AYXqIjLAWl6oMRQ"
-# output = "/workspace/runpod-slim/ComfyUI/models/loras/lora_wan_pov_low.safetensors"
-# gdown.download(url, output, quiet=False)
+# DR34ML4Y_I2V_14B_LOW
+url = "https://drive.google.com/uc?id=1bQZaHwmz1x7C5HqNh2EPz7C-WXeNd9rp"
+output = "/workspace/runpod-slim/ComfyUI/models/loras/lora_wan_pov_low.safetensors"
+gdown.download(url, output, quiet=False)

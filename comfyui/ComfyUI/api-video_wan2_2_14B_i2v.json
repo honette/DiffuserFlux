@@ -46,7 +46,7 @@
   "86": {
     "inputs": {
       "add_noise": "enable",
-      "noise_seed": 847481086908061,
+      "noise_seed": 1052515589519803,
       "steps": 4,
       "cfg": 1,
       "sampler_name": "euler",
@@ -162,7 +162,7 @@
   },
   "97": {
     "inputs": {
-      "image": "00196-2025-10-10_lustifySDXLNSFW_ggwpV7.jpg"
+      "image": "3cbf431409075148cfcb9b08950f3403.jpg"
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -269,8 +269,8 @@
   },
   "119": {
     "inputs": {
-      "lora_name": "lora_wan_nsfw_high.safetensors",
-      "strength_model": 0.2,
+      "lora_name": "lora_wan_dr34ml4y_high.safetensors",
+      "strength_model": 0.8,
       "model": [
         "101",
         0
@@ -283,8 +283,8 @@
   },
   "120": {
     "inputs": {
-      "lora_name": "lora_wan_nsfw_low.safetensors",
-      "strength_model": 0.2,
+      "lora_name": "lora_wan_dr34ml4y_low.safetensors",
+      "strength_model": 0.8,
       "model": [
         "102",
         0

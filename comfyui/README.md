@@ -12,12 +12,20 @@
 cd /workspace
 git clone https://github.com/honette/DiffuserFlux.git
 cd DiffuserFlux/comfyui
+chmod +x setup_runpod_env.sh
+sh ./setup_runpod_env.sh
+```
+
+### 手動セットアップの場合
+
+```bash
+cd /workspace
+git clone https://github.com/honette/DiffuserFlux.git
+cd DiffuserFlux/comfyui
 pip install tqdm gdown
 python3 download_wan_diffuser_model_for_comfyui.py
 python3 download_wan_lora.py
 ```
-
-## 手動バッチ実行
 
 - Runpodからファイルマネージャを開き、 `/workspace/runpod-slim/ComfyUI/` 配下にファイルをアップロード
     - DiffuserFlux\comfyui\ComfyUI\api-video_wan2_2_14B_i2v.json
@@ -35,6 +43,9 @@ cd /workspace/runpod-slim/ComfyUI/scripts/
 pip install -r requirements.txt
 apt update && apt install -y rsync vim
 ```
+
+## バッチ実行（キュー登録）
+
     - 最初に一件だけで実行したほうが良いかもしれない。最初の一件だけはモデルのロードで5分くらい余分に掛かる
         - 注意: ワークフローがデフォルトでキュー100件までの設定
 ```bash

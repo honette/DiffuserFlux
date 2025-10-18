@@ -8,10 +8,23 @@ WORKFLOW_PATH = "/workspace/runpod-slim/ComfyUI/api-video_wan2_2_14B_i2v.json"
 IMAGE_DIR = "/workspace/runpod-slim/ComfyUI/input_images"
 API_URL = "http://127.0.0.1:8188/prompt"
 LOG_DIR = "/workspace/runpod-slim/ComfyUI/logs"
+CONFIG_PATH = "/workspace/runpod-slim/ComfyUI/scripts/config_api_i2v.json"
 
-POS_PROMPT = "Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also nipples and pussy, Then The girls jumps little by little; Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: She is teenager, She has large nipples;"
-# POS_PROMPT = "Description: As soon as the video begins, The girls's unzip worn items to expose her breasts and nipples, then she speaks; Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: She is teenager, She has large nipples;"
-NEG_PROMPT = "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走, man, dick, dildo, penis, futanari, erection, balls, insertion"
+if os.path.exists(CONFIG_PATH):
+    with open(CONFIG_PATH, "r") as cf:
+        cfg = json.load(cf)
+    POS_PROMPT = cfg.get("positive_prompt", "A default positive prompt")
+    NEG_PROMPT = cfg.get("negative_prompt", "low quality, blurry, bad anatomy")
+    VIDEO_LENGTH = cfg.get("video_length", 81)
+else:
+    POS_PROMPT = "The girls are punching."
+    NEG_PROMPT = "low quality, blurry, bad anatomy"
+    VIDEO_LENGTH = 81
+
+log(f"Loaded config from {CONFIG_PATH}")
+log(f"  ▶ Positive: {POS_PROMPT[:50]}...")
+log(f"  ▶ Negative: {NEG_PROMPT[:50]}...")
+log(f"  ▶ Video length: {VIDEO_LENGTH}")
 
 # ==== 引数 ====
 parser = argparse.ArgumentParser(description="Batch image-to-video queue script (with resume) for Wan2.2 on RunPod")
@@ -123,6 +136,7 @@ for i, img in enumerate(images, start=1):
         # WanImageToVideo ノードに設定
         workflow[str(video_node_id)]["inputs"]["width"] = width
         workflow[str(video_node_id)]["inputs"]["height"] = height
+        workflow[str(video_node_id)]["inputs"]["length"] = VIDEO_LENGTH
 
     except Exception as e:
         log(f"   ⚠️ Could not adjust resolution for {img}: {e}")

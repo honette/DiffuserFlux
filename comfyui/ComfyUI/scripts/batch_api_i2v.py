@@ -10,6 +10,17 @@ API_URL = "http://127.0.0.1:8188/prompt"
 LOG_DIR = "/workspace/runpod-slim/ComfyUI/logs"
 CONFIG_PATH = "/workspace/runpod-slim/ComfyUI/scripts/config_api_i2v.json"
 
+# ==== ログ準備 ====
+os.makedirs(LOG_DIR, exist_ok=True)
+timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+log_path = os.path.join(LOG_DIR, f"batch_i2v_{timestamp}.log")
+
+def log(msg):
+    """print + ファイル出力"""
+    print(msg)
+    with open(log_path, "a") as f:
+        f.write(msg + "\n")
+
 if os.path.exists(CONFIG_PATH):
     with open(CONFIG_PATH, "r") as cf:
         cfg = json.load(cf)
@@ -32,17 +43,6 @@ parser.add_argument("--limit", type=int, default=None, help="最大処理数")
 parser.add_argument("--skip", type=int, default=0, help="先頭からスキップする件数")
 parser.add_argument("--resume", action="store_true", help="最新のログから未処理ファイルをスキップ")
 args = parser.parse_args()
-
-# ==== ログ準備 ====
-os.makedirs(LOG_DIR, exist_ok=True)
-timestamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-log_path = os.path.join(LOG_DIR, f"batch_i2v_{timestamp}.log")
-
-def log(msg):
-    """print + ファイル出力"""
-    print(msg)
-    with open(log_path, "a") as f:
-        f.write(msg + "\n")
 
 log(f"🕓 Start: {timestamp}")
 log(f"Args: skip={args.skip}, limit={args.limit}, resume={args.resume}")

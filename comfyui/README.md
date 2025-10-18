@@ -12,8 +12,8 @@
 cd /workspace
 git clone https://github.com/honette/DiffuserFlux.git
 cd DiffuserFlux/comfyui
-chmod +x setup_runpod_env.sh
-sh ./setup_runpod_env.sh
+chmod +x ComfyUI/setup_runpod_env.sh
+sh ./ComfyUI/setup_runpod_env.sh
 ```
 
 ### 手動セットアップの場合
@@ -42,6 +42,7 @@ python3 download_wan_lora.py
 cd /workspace/runpod-slim/ComfyUI/scripts/
 pip install -r requirements.txt
 apt update && apt install -y rsync vim
+cp /workspace/runpod-slim/ComfyUI/scripts/config_api_i2v_default.json /workspace/runpod-slim/ComfyUI/scripts/config_api_i2v.json
 ```
 
 ## バッチ実行（キュー登録）

@@ -19,7 +19,7 @@ else
 fi
 
 # Python依存パッケージをインストール
-cd DiffuserFlux/comfyui
+cd /workspace/DiffuserFlux/comfyui
 echo "📦 Installing Python dependencies..."
 pip install -U pip tqdm gdown
 

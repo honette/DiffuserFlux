@@ -116,25 +116,9 @@ Description: As soon as the video begins, ????, then revealing her naked body, i
 - 頭から水をかぶって服が流される
     - Description: As soon as the video begins, water pours down on her head, washing away her clothes and leaving her completely naked, including her lower body;
 
-### Sceneプロンプト (未検証)
-
-- 第三者が脱がす
-    - Description: As soon as the video starts, A third person's arm reaches out from under the screen and rips her clothes off in an instant, she is completely naked, becomes full nude;
-- 温泉に入ろう
-    - As soon as the video starts, the background changes to a hot spring, and at the same time she becomes completely naked and soaks in the hot spring.
-
-Description: As her clothes get wet, they become transparent like vinyl, gradually revealing her naked body, breasts, and nipples;
-Description: As soon as the video starts, The chest of her dress bursts, revealing her breasts and nipples.
-Description: In the slideshow video, she is completely naked in the center of the screen and takes various sexy poses.
-### Partical Scene ideas
+### アニメ用プロンプト
 
 ```
-Scene 1/3: As soon as the video begins, The girls clothes fly off in an instant, The girls are completely naked including the lower body, also nipples;
-Scene 2/3: She turns her ass towards me;
-Scene 3/3: She faces forward, leans forward and presses her breasts together;
-Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: The girls are teenager, The girls have large nipples;
-
-Scene 1/2: She takes off her clothes and is in her underwear;
-Scene 2/2: She takes off her underwear, She is completely naked including the lower body, also nipples;
-Constraints: Videos are at 2x speed; Camera: fixed front, The composition does not change; Mood: The girls are teenager, The girls have large nipples;
+Very high quality 4k cinematic animation, Japanese cartoon animation, fluid and exaggerated movements, camera motion, smooth animation, cinematic keyframes; She moves to the rhythm with joy, Her breasts bounce up and down violently,
+Very high quality 4k cinematic animation, Japanese cartoon animation, fluid and exaggerated movements, camera motion, smooth animation, cinematic keyframes; swaying her breasts and hips, bouncing breasts,
 ```

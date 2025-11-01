@@ -4,7 +4,6 @@ from PIL import Image
 import uuid
 
 # ==== 設定 ====
-WORKFLOW_PATH = "/workspace/runpod-slim/ComfyUI/api-video_wan2_2_14B_i2v.json"
 IMAGE_DIR = "/workspace/runpod-slim/ComfyUI/input_images"
 API_URL = "http://127.0.0.1:8188/prompt"
 LOG_DIR = "/workspace/runpod-slim/ComfyUI/logs"
@@ -24,10 +23,12 @@ def log(msg):
 if os.path.exists(CONFIG_PATH):
     with open(CONFIG_PATH, "r") as cf:
         cfg = json.load(cf)
+    WORKFLOW_PATH = cfg.get("workflow_path", "/workspace/runpod-slim/ComfyUI/api-video_wan2_2_14B_i2v_default.json")
     POS_PROMPT = cfg.get("positive_prompt", "A default positive prompt")
     NEG_PROMPT = cfg.get("negative_prompt", "low quality, blurry, bad anatomy")
     VIDEO_LENGTH = cfg.get("video_length", 81)
 else:
+    WORKFLOW_PATH = "/workspace/runpod-slim/ComfyUI/api-video_wan2_2_14B_i2v_default.json"
     POS_PROMPT = "The girls are punching."
     NEG_PROMPT = "low quality, blurry, bad anatomy"
     VIDEO_LENGTH = 81

@@ -12,7 +12,7 @@ rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 22020" root@63.141.33.29:/workspace/Di
 rsync -avz -e "ssh -i ~/.ssh/id_runpod -p 22020" root@63.141.33.29:/workspace/DiffuserFlux/batch/outputs/ ./
 ```
 
-## 1. 作業環境構築
+## 作業環境構築
 
 ```bash
 apt update; apt install -y vim
@@ -22,8 +22,17 @@ cd DiffuserFlux/
 ```
 
 - HF_TOKENをexportする
+  - Pod Templateで設定済みなら不要
 
+## File Browser起動
+
+```bash
+bash run_filebrowser.sh
 ```
+
+## Diffuser準備
+
+```bash
 # venv環境にライブラリをインストール
 bash setup.sh
 
@@ -40,13 +49,16 @@ pip install -r requirements.txt
 - NSFW対応LoRAはGoogle Driveからダウンロード `download_lora.py`
 - バッチ実行用のサンプル画像もGoogle Driveからダウンロード `unzip_images.py`
 
+```bash
+venv/bin/python3 download_lora_flux.py
+```
+
 ## トラブルシューティング
 
-```
+```bash
 # ターミナルがフリーズ、プロセスだけが残った
 ps aux | grep python
 kill 1234
-
 ```
 
 ---

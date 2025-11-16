@@ -31,7 +31,7 @@ python3 download_wan_lora.py
 
 # ComfyUI に必要ファイルをコピー
 echo "🧩 Copying workflow, images, and scripts to ComfyUI..."
-SRC_DIR="/workspace/DiffuserFlux/comfyui/ComfyUI"
+SRC_DIR="/workspace/DiffuserFlux/comfyui/ComfyUI_Wan22"
 DST_DIR="/workspace/runpod-slim/ComfyUI"
 
 mkdir -p "${DST_DIR}/input_images"

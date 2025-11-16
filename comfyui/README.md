@@ -12,7 +12,7 @@
 cd /workspace
 git clone https://github.com/honette/DiffuserFlux.git
 cd DiffuserFlux/comfyui
-bash ./ComfyUI/setup_runpod_env.sh
+bash ./ComfyUI_Wan22/setup_runpod_env.sh
 ```
 
 ### 手動セットアップの場合

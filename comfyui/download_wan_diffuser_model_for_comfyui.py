@@ -8,9 +8,11 @@ BASE_DIR = "/workspace/runpod-slim/ComfyUI"
 # ダウンロード対象ファイル
 files = {
     "models/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors":
-        "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+        # "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+        "https://drive.google.com/uc?id=1L7n5Fuhpub12jFWLeuM5Bz6ttP2AAGdf", # for Anime
     "models/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors":
-        "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+        # "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+        "https://drive.google.com/uc?id=1wDVgTRJeAfsIWdgemKT8DmKa2DVJ8xiM", # for Anime
     "models/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors":
         "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
     "models/vae/wan_2.1_vae.safetensors":

@@ -228,7 +228,7 @@
       ],
       "size": [
         968.8588256835938,
-        646.4106560473173
+        743.9058837890625
       ],
       "flags": {},
       "order": 19,
@@ -305,7 +305,7 @@
       },
       "widgets_values": [
         "enable",
-        326845865378746,
+        977967990770837,
         "randomize",
         4,
         1,
@@ -381,166 +381,6 @@
       ]
     },
     {
-      "id": 80,
-      "type": "LoraLoaderModelOnly",
-      "pos": [
-        -372.4886865714976,
-        -948.5655794899811
-      ],
-      "size": [
-        325.4346008300781,
-        82
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 180
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            207
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.47",
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
-        1.0000000000000002
-      ]
-    },
-    {
-      "id": 82,
-      "type": "LoraLoaderModelOnly",
-      "pos": [
-        -371.5073022941539,
-        -808.7258578102936
-      ],
-      "size": [
-        318.9761962890625,
-        82
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 184
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            209
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.47",
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
-        1
-      ]
-    },
-    {
-      "id": 55,
-      "type": "ModelSamplingSD3",
-      "pos": [
-        873.4537052074282,
-        -683.1646399196163
-      ],
-      "size": [
-        330.6119384765625,
-        58
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 210
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "slot_index": 0,
-          "links": [
-            148
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.45",
-        "Node name for S&R": "ModelSamplingSD3"
-      },
-      "widgets_values": [
-        8
-      ]
-    },
-    {
-      "id": 54,
-      "type": "ModelSamplingSD3",
-      "pos": [
-        495.86872042672223,
-        -689.9486975368042
-      ],
-      "size": [
-        329.56317138671875,
-        60
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 208
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "slot_index": 0,
-          "links": [
-            147
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.45",
-        "Node name for S&R": "ModelSamplingSD3"
-      },
-      "widgets_values": [
-        8.000000000000002
-      ]
-    },
-    {
       "id": 91,
       "type": "RIFE VFI",
       "pos": [
@@ -589,49 +429,6 @@
         true,
         1
       ]
-    },
-    {
-      "id": 7,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -12.532559394836426,
-        -508.911865234375
-      ],
-      "size": [
-        425.27801513671875,
-        180.6060791015625
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 177
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "slot_index": 0,
-          "links": [
-            135
-          ]
-        }
-      ],
-      "title": "CLIP Text Encode (Negative Prompt)",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.45",
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "slow motion, low quality, lowres, bad hands, extra limbs, missing fingers, poorly drawn face, bad anatomy, blurred, jpeg artifacts, deformed, ugly, bad proportions, disfigured, watermark, text, logo, signature, unrealistic eyes, cross-eyed, lopsided, bad lighting, harsh shadows, flat shading, unshapely body, pixelated, duplicate limbs, bad perspective, morphed, distorted, glitch, malformed hands, distorted fingers, noisy background, overly saturated, unnatural colors, lens distortion, grainy, low detail,"
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
     },
     {
       "id": 97,
@@ -714,65 +511,64 @@
       ]
     },
     {
-      "id": 62,
-      "type": "LoadImage",
+      "id": 82,
+      "type": "LoraLoaderModelOnly",
       "pos": [
-        -761.509033203125,
-        -337.8241882324219
+        -371.5073022941539,
+        -808.7258578102936
       ],
       "size": [
-        679.8250122070312,
-        375.4719543457031
+        318.9761962890625,
+        82
       ],
       "flags": {},
-      "order": 4,
+      "order": 8,
       "mode": 0,
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 184
+        }
+      ],
       "outputs": [
         {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
+          "name": "MODEL",
+          "type": "MODEL",
           "links": [
-            133
+            209
           ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "slot_index": 1,
-          "links": null
         }
       ],
       "properties": {
         "cnr_id": "comfy-core",
-        "ver": "0.3.45",
-        "Node name for S&R": "LoadImage"
+        "ver": "0.3.47",
+        "Node name for S&R": "LoraLoaderModelOnly"
       },
       "widgets_values": [
-        "pasted/image (1).png",
-        "image"
+        "Wan2.2-Lightning_I2V-A14B-4steps-lora_LOW_fp16.safetensors",
+        1
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "type": "CLIPTextEncode",
       "pos": [
-        -9.994431495666504,
-        -712.0841674804688
+        -12.532559394836426,
+        -508.911865234375
       ],
       "size": [
-        422.84503173828125,
-        164.31304931640625
+        425.27801513671875,
+        180.6060791015625
       ],
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 176
+          "link": 177
         }
       ],
       "outputs": [
@@ -781,65 +577,60 @@
           "type": "CONDITIONING",
           "slot_index": 0,
           "links": [
-            134
+            135
           ]
         }
       ],
-      "title": "CLIP Text Encode (Positive Prompt)",
+      "title": "CLIP Text Encode (Negative Prompt)",
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.3.45",
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "they running, close up upper body\n\n\n"
+        "low quality, lowres, bad hands, extra limbs, missing fingers, poorly drawn face, bad anatomy, blurred, jpeg artifacts, deformed, ugly, bad proportions, disfigured, watermark, text, logo, signature, unrealistic eyes, cross-eyed, lopsided, bad lighting, harsh shadows, flat shading, unshapely body, pixelated, duplicate limbs, bad perspective, morphed, distorted, glitch, malformed hands, distorted fingers, noisy background, overly saturated, unnatural colors, lens distortion, grainy, low detail,"
       ],
-      "color": "#232",
-      "bgcolor": "#353"
+      "color": "#322",
+      "bgcolor": "#533"
     },
     {
-      "id": 60,
-      "type": "CreateVideo",
+      "id": 80,
+      "type": "LoraLoaderModelOnly",
       "pos": [
-        1683.0888671875,
-        -743.886962890625
+        -372.4886865714976,
+        -948.5655794899811
       ],
       "size": [
-        564.086181640625,
-        84.59693145751953
+        325.4346008300781,
+        82
       ],
       "flags": {},
-      "order": 18,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 205
-        },
-        {
-          "name": "audio",
-          "shape": 7,
-          "type": "AUDIO",
-          "link": null
+          "name": "model",
+          "type": "MODEL",
+          "link": 180
         }
       ],
       "outputs": [
         {
-          "name": "VIDEO",
-          "type": "VIDEO",
+          "name": "MODEL",
+          "type": "MODEL",
           "links": [
-            132
+            207
           ]
         }
       ],
       "properties": {
         "cnr_id": "comfy-core",
-        "ver": "0.3.45",
-        "Node name for S&R": "CreateVideo"
+        "ver": "0.3.47",
+        "Node name for S&R": "LoraLoaderModelOnly"
       },
       "widgets_values": [
-        16
+        "Wan2.2-Lightning_I2V-A14B-4steps-lora_HIGH_fp16.safetensors",
+        1.0000000000000002
       ]
     },
     {
@@ -923,6 +714,215 @@
         512,
         65,
         1
+      ]
+    },
+    {
+      "id": 54,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        495.86872042672223,
+        -689.9486975368042
+      ],
+      "size": [
+        329.56317138671875,
+        60
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 208
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            147
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        8
+      ]
+    },
+    {
+      "id": 55,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        873.4537052074282,
+        -683.1646399196163
+      ],
+      "size": [
+        330.6119384765625,
+        58
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 210
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            148
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        8
+      ]
+    },
+    {
+      "id": 60,
+      "type": "CreateVideo",
+      "pos": [
+        1683.0888671875,
+        -743.886962890625
+      ],
+      "size": [
+        564.086181640625,
+        84.59693145751953
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 205
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            132
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        20
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -9.994431495666504,
+        -712.0841674804688
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 176
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            134
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "she is dancing and smiling"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 62,
+      "type": "LoadImage",
+      "pos": [
+        -761.509033203125,
+        -337.8241882324219
+      ],
+      "size": [
+        679.8250122070312,
+        375.4719543457031
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            133
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pasted/image (3).png",
+        "image"
       ]
     }
   ],
@@ -1226,8 +1226,8 @@
     "ds": {
       "scale": 0.5802968449884037,
       "offset": [
-        1083.5021839149174,
-        945.1103673030823
+        1011.8148304032972,
+        854.1224733502472
       ]
     },
     "frontendVersion": "1.28.8",

@@ -22,6 +22,7 @@ fi
 cd /workspace/DiffuserFlux/comfyui
 echo "📦 Installing Python dependencies..."
 pip install -U pip tqdm gdown
+pip install hf-transfer huggingface-hub aria2
 
 # モデルのダウンロード
 echo "⬇️ Downloading WAN Diffuser model..."

@@ -23,12 +23,12 @@ def log(msg):
 if os.path.exists(CONFIG_PATH):
     with open(CONFIG_PATH, "r") as cf:
         cfg = json.load(cf)
-    WORKFLOW_PATH = cfg.get("workflow_path", "/workspace/runpod-slim/ComfyUI/api-video_wan2_2_14B_i2v_default.json")
+    WORKFLOW_PATH = cfg.get("workflow_path", "/workspace/runpod-slim/ComfyUI/api-video_wan2_2_14B_i2v.json")
     POS_PROMPT = cfg.get("positive_prompt", "A default positive prompt")
     NEG_PROMPT = cfg.get("negative_prompt", "low quality, blurry, bad anatomy")
     VIDEO_LENGTH = cfg.get("video_length", 81)
 else:
-    WORKFLOW_PATH = "/workspace/runpod-slim/ComfyUI/api-video_wan2_2_14B_i2v_default.json"
+    WORKFLOW_PATH = "/workspace/runpod-slim/ComfyUI/api-video_wan2_2_14B_i2v.json"
     POS_PROMPT = "The girls are punching."
     NEG_PROMPT = "low quality, blurry, bad anatomy"
     VIDEO_LENGTH = 81

@@ -49,8 +49,8 @@ cp /workspace/runpod-slim/ComfyUI/scripts/config_api_i2v_default.json /workspace
     - 最初に一件だけで実行したほうが良いかもしれない。最初の一件だけはモデルのロードで5分くらい余分に掛かる
         - 注意: ワークフローがデフォルトでキュー100件までの設定
 ```bash
-python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 1 --skip 0
-python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v.py --limit 20 --skip 0
+python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v-with_RIFE.py --limit 1 --skip 0
+python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v-with_RIFE.py --limit 20 --skip 0
 ```
 
 ## GUI設定

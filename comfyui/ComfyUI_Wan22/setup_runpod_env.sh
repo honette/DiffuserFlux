@@ -38,7 +38,8 @@ DST_DIR="/workspace/runpod-slim/ComfyUI"
 mkdir -p "${DST_DIR}/input_images"
 mkdir -p "${DST_DIR}/scripts"
 
-cp -r "${SRC_DIR}/api-video_wan2_2_14B_i2v*.json" "${DST_DIR}/"
+cp -r "${SRC_DIR}/api-video_wan2_2_14B_i2v.json" "${DST_DIR}/"
+cp -r "${SRC_DIR}/api-video_wan2_2_14B_i2v-with_RIFE.json" "${DST_DIR}/"
 cp -r "${SRC_DIR}/input_images/"* "${DST_DIR}/input_images/" 2>/dev/null || true
 cp -r "${SRC_DIR}/scripts/"* "${DST_DIR}/scripts/"
 cp -r "${SRC_DIR}/scripts/config_api_i2v_default.json" "${DST_DIR}/scripts/config_api_i2v.json"

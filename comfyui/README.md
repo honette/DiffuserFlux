@@ -44,6 +44,16 @@ apt update && apt install -y rsync vim
 cp /workspace/runpod-slim/ComfyUI/scripts/config_api_i2v_default.json /workspace/runpod-slim/ComfyUI/scripts/config_api_i2v.json
 ```
 
+## ComfyUI再起動
+
+ComfyUIのUIを開いてManagerからRestart
+
+## 不足ノードのインストール
+
+RIFEとかを使う場合に必要
+Managerから `Missing Node Install`
+んでまた再起動
+
 ## バッチ実行（キュー登録）
 
     - 最初に一件だけで実行したほうが良いかもしれない。最初の一件だけはモデルのロードで5分くらい余分に掛かる
@@ -65,7 +75,7 @@ python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v-with_RIFE.py --limi
     - 大量バッチなら `remote_batch_control.py`
     - rsyncを使うならwsl上で `ssh_helper` でコマンドをチェック
     ```bash
-    sh ssh_helper.sh 69.30.85.57:22092
+    sh ssh_helper.sh 209.170.80.132:10589
     ```
 
 ## プロンプト
@@ -76,6 +86,12 @@ python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_i2v-with_RIFE.py --limi
 Description: As soon as the video begins, The girls's all worn items fly off in an instant, The girls are completely naked including the lower body, also nipples, Then girls follow the rhythm of the music;
 Constraints: head orientation remains constant throughout the motion; Camera: fixed front, The composition does not change; Mood: She is teenager, She has large nipples;
 ```
+
+erase her all worn items and she transform into completely naked, nude including nipples, she start doggy sex with another man, double speed moving
+
+she is teenager, erase her all worn items and she transform into completely naked, nude including nipples, she squatting and dildo insert own naked pussy, her legs apart, double speed moving
+
+erase her all worn items and she transform into completely naked, nude including nipples, she lean forward and hands on own knees, her legs apart, double speed moving
 
 Description: As soon as the video begins, The girls's unzip worn items to expose her breasts and nipples, then she speaks;
 Description: As soon as the video begins, The girls's change into a micro-bikini in an instant;

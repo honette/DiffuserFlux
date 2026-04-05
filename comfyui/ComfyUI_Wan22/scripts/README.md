@@ -43,6 +43,11 @@
     /workspace/runpod-slim/ComfyUI/input_images/
     ```
     
+4. プロンプトの変更
+
+    ```
+    vi /workspace/runpod-slim/ComfyUI/scripts/config_api_i2v.json
+    ```
 
 ---
 

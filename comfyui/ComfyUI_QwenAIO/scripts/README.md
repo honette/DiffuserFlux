@@ -1,3 +1,20 @@
+## 使い方
+- 同フォルダ内のファイルを `/workspace/runpod-slim/ComfyUI/scripts/` に配置
+- 実行例
+
+```bash
+python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_qwen-edit.py --limit 20 --skip 0
+
+```
+
+---
+## アイディア
+
+- コミック・アニメの女性キャラのみを脱がす
+
+---
+## GEMINIより
+
 - **SaveImageノードの準備**
 送ってくれたJSONだと、出力が **`PreviewImage` (ID: 6)** になっていたよ。
 APIでファイル保存を確実にするには、ComfyUI上で `PreviewImage` を削除して **`SaveImage`** ノードを追加し、そのIDをスクリプト内の `save_id` に設定してね。

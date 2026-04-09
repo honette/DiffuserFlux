@@ -83,17 +83,23 @@ for i, img in enumerate(images, start=1):
         except: pass
 
         # --- パラメータセット ---
-        workflow[load_img1_id]["inputs"]["image"] = img
+        workflow[load_img1_id]["inputs"]["image"] = os.path.join(IMAGE_DIR, img)
         workflow[prompt_id]["inputs"]["prompt"] = pos_prompt
         workflow[save_id]["inputs"]["filename_prefix"] = out_name
 
         # --- 送信 ---
         try:
-            requests.post(API_URL, json={"prompt": workflow, "client_id": str(uuid.uuid4())})
-            log(f"[{i}/{len(images)}] Queue added: {out_name} ({'2IMG' if image2_path else '1IMG'})")
+            # client_id をループごとに確実に変える
+            cid = str(uuid.uuid4())
+            r = requests.post(API_URL, json={"prompt": workflow, "client_id": cid})
+            if r.ok:
+                log(f"[{i}/{len(images)}] Queue added: {out_name} ({'2IMG' if image2_path else '1IMG'})")
+            else:
+                log(f"  ⚠️ API Error: {r.status_code} {r.text}")
         except Exception as e:
             log(f"  ❌ Error: {e}")
 
-    time.sleep(0.3)
+    # 次の画像に行く前に少し長めに休む（1.0秒くらい）
+    time.sleep(1.0)
 
 log("🏁 Finished adding all batches to queue.")

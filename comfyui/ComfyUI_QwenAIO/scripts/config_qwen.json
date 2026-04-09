@@ -1,13 +1,17 @@
 [
   {
-    "positive_prompt": "A girl standing, landscape of IMAGE2",
-    "image2_path": "scripts/subset_images/city_sunset.png"
+    "positive_prompt": "A girl standing, background is IMAGE2",
+    "image2_path": "/workspace/runpod-slim/ComfyUI/scripts/subset_images/landscapes/taiikukan_wall.jpg"
   },
   {
-    "positive_prompt": "A girl sitting on the beach, landscape of IMAGE2",
-    "image2_path": "scripts/subset_images/city_sunset.png"
+    "positive_prompt": "A girl posing IMAGE2",
+    "image2_path": "/workspace/runpod-slim/ComfyUI/scripts/subset_images/poses/sit_hold-knees.jpg"
   },
   {
-    "positive_prompt": "A girl sitting on the beach with a dog",
+    "positive_prompt": "A girl eating wearing only shirt, pattern of her clothing is IMAGE2",
+    "image2_path": "/workspace/runpod-slim/ComfyUI/scripts/subset_images/textures/argyle-check.jpg"
+  },
+  {
+    "positive_prompt": "A girl eating hamberger"
   }
 ]

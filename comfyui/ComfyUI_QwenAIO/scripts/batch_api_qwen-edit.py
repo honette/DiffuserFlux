@@ -8,7 +8,9 @@ IMAGE_DIR = "/workspace/runpod-slim/ComfyUI/input_images"
 API_URL = "http://127.0.0.1:8188/prompt"
 LOG_DIR = "/workspace/runpod-slim/ComfyUI/logs"
 CONFIG_PATH = "/workspace/runpod-slim/ComfyUI/scripts/config_qwen.json"
-WORKFLOW_PATH = "/workspace/runpod-slim/ComfyUI/scripts/Qwen-Rapid-AIO_API.json"
+
+WORKFLOW_1IMG = "/workspace/runpod-slim/ComfyUI/scripts/Qwen-Rapid-AIO_1img_API.json"
+WORKFLOW_2IMG = "/workspace/runpod-slim/ComfyUI/scripts/Qwen-Rapid-AIO_2img_API.json"
 
 # ==== ログ準備 ====
 os.makedirs(LOG_DIR, exist_ok=True)
@@ -20,30 +22,21 @@ def log(msg):
     with open(log_path, "a") as f:
         f.write(msg + "\n")
 
-# ==== コンフィグ読み込み ====
+# ==== コンフィグ読み込み (配列として処理) ====
 if os.path.exists(CONFIG_PATH):
     with open(CONFIG_PATH, "r") as cf:
-        cfg = json.load(cf)
-    POS_PROMPT = cfg.get("positive_prompt", "High quality image")
-    IMAGE2_PATH = cfg.get("image2_path", None) 
+        config_list = json.load(cf)
+    if not isinstance(config_list, list):
+        config_list = [config_list] # 単体オブジェクトの場合も配列に変換
 else:
-    POS_PROMPT = "High quality image"
-    IMAGE2_PATH = None
+    log("❌ Config file not found!")
+    raise SystemExit(1)
 
-log(f"Loaded config from {CONFIG_PATH}")
-log(f"  ▶ Positive: {POS_PROMPT[:50]}...")
-
-# ==== ワークフロー読み込み ====
-with open(WORKFLOW_PATH) as f:
-    workflow = json.load(f)
-
-# ==== ノードID設定 (Qwen-Rapid-AIO_API.json準拠) ====
-# ニシが直す予定の「image1/image2」構成を前提にしておくね！
-load_img1_id = "7"  # メイン画像 (後で直す用)
-load_img2_id = "8"  # 2枚目画像
-prompt_id    = "3"  # TextEncodeQwenImageEditPlus
-latent_id    = "9"  # EmptyLatentImage
-save_id      = "10" # SaveImage
+# ==== ワークフローの事前読み込み ====
+with open(WORKFLOW_1IMG) as f:
+    wf_1img_base = json.load(f)
+with open(WORKFLOW_2IMG) as f:
+    wf_2img_base = json.load(f)
 
 # ==== 入力画像リスト ====
 images = sorted([
@@ -51,64 +44,56 @@ images = sorted([
     if f.lower().endswith((".jpg", ".jpeg", ".png"))
 ])
 
-if not images:
-    log("❌ No images found in input_images/")
-    raise SystemExit(1)
-
 # ==== メインループ ====
 MAX_SIDE = 1920
 
 for i, img in enumerate(images, start=1):
-    basename, ext = os.path.splitext(img)
-    out_name = f"edit/qwen_{basename}"
     img1_full_path = os.path.join(IMAGE_DIR, img)
-    
-    log(f"[{i}/{len(images)}] ▶ {img} → {out_name}")
+    basename, ext = os.path.splitext(img)
 
-    # --- 解像度計算 (長辺MAX 1920) ---
-    try:
-        with Image.open(img1_full_path) as im:
-            w, h = im.size
+    # 各画像に対してコンフィグ配列の数だけ実行
+    for c_idx, cfg in enumerate(config_list):
+        pos_prompt = cfg.get("positive_prompt", "High quality image")
+        image2_path = cfg.get("image2_path", None)
         
-        if max(w, h) > MAX_SIDE:
-            scale = MAX_SIDE / max(w, h)
-            new_w = int(w * scale)
-            new_h = int(h * scale)
-            log(f"   ↳ Scaling: {w}x{h} → {new_w}x{h}")
+        # 保存名の設定 (末尾にインデックスを付けて被らないようにする)
+        out_name = f"edit/qwen_{basename}_v{c_idx}"
+
+        # ワークフロー選択とベースコピー
+        if image2_path:
+            workflow = json.loads(json.dumps(wf_2img_base)) # Deep copy
+            load_img2_id = "8"
+            workflow[load_img2_id]["inputs"]["image"] = image2_path
         else:
-            new_w, new_h = w, h
-            log(f"   ↳ Size: {w}x{h}")
+            workflow = json.loads(json.dumps(wf_1img_base)) # Deep copy
 
-        workflow[latent_id]["inputs"]["width"] = new_w
-        workflow[latent_id]["inputs"]["height"] = new_h
-    except Exception as e:
-        log(f"   ⚠️ Size Calculation Error: {e}")
+        # 共通ノードID
+        load_img1_id = "7"
+        prompt_id    = "3"
+        latent_id    = "9"
+        save_id      = "10"
 
-    # --- ノード入力設定 ---
-    # メイン画像
-    workflow[load_img1_id]["inputs"]["image"] = img
-    
-    # 2枚目画像 (コンフィグにあればセット)
-    if IMAGE2_PATH:
-        workflow[load_img2_id]["inputs"]["image"] = IMAGE2_PATH
+        # --- サイズ計算 ---
+        try:
+            with Image.open(img1_full_path) as im:
+                w, h = im.size
+            new_w, new_h = (int(w * (MAX_SIDE/max(w,h))), int(h * (MAX_SIDE/max(w,h)))) if max(w,h) > MAX_SIDE else (w,h)
+            workflow[latent_id]["inputs"]["width"] = new_w
+            workflow[latent_id]["inputs"]["height"] = new_h
+        except: pass
 
-    # プロンプト (API用JSONの項目名 'prompt' に合わせているよ)
-    workflow[prompt_id]["inputs"]["prompt"] = POS_PROMPT
+        # --- パラメータセット ---
+        workflow[load_img1_id]["inputs"]["image"] = img
+        workflow[prompt_id]["inputs"]["prompt"] = pos_prompt
+        workflow[save_id]["inputs"]["filename_prefix"] = out_name
 
-    # 出力ファイル名
-    workflow[save_id]["inputs"]["filename_prefix"] = out_name
+        # --- 送信 ---
+        try:
+            requests.post(API_URL, json={"prompt": workflow, "client_id": str(uuid.uuid4())})
+            log(f"[{i}/{len(images)}] Queue added: {out_name} ({'2IMG' if image2_path else '1IMG'})")
+        except Exception as e:
+            log(f"  ❌ Error: {e}")
 
-    # --- 送信 ---
-    try:
-        payload = {"prompt": workflow, "client_id": str(uuid.uuid4())}
-        r = requests.post(API_URL, json=payload)
-        if r.ok:
-            log(f"  ✅ Queued successfully")
-        else:
-            log(f"  ⚠️ Failed: {r.status_code} - {r.text}")
-    except Exception as e:
-        log(f"  ❌ Error during request: {e}")
+    time.sleep(0.3)
 
-    time.sleep(0.5)
-
-log(f"🏁 Done! Log saved to: {log_path}")
+log("🏁 Finished adding all batches to queue.")

@@ -1,0 +1,12 @@
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.gif
+*.webp
+*.tiff
+*.jfif
+
+!/landscapes/taiikukan_wall.jpg
+!/poses/sit_hold-knees.jpg
+!/textures/argyle-check.jpg

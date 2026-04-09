@@ -5,7 +5,7 @@
     },
     "class_type": "CheckpointLoaderSimple",
     "_meta": {
-      "title": "Load Checkpoint"
+      "title": "チェックポイントを読み込む"
     }
   },
   "2": {
@@ -35,12 +35,12 @@
     },
     "class_type": "KSampler",
     "_meta": {
-      "title": "KSampler"
+      "title": "Kサンプラー"
     }
   },
   "3": {
     "inputs": {
-      "prompt": "Woman be naked. she is low teenager, tiny flat breasts, pointy puffy nipples",
+      "prompt": "pull-up clothing tops by own hands, exposed breasts",
       "clip": [
         "1",
         1
@@ -48,6 +48,10 @@
       "vae": [
         "1",
         2
+      ],
+      "image1": [
+        "7",
+        0
       ],
       "image2": [
         "8",
@@ -89,7 +93,7 @@
     },
     "class_type": "VAEDecode",
     "_meta": {
-      "title": "VAE Decode"
+      "title": "VAEデコード"
     }
   },
   "6": {
@@ -101,12 +105,21 @@
     },
     "class_type": "PreviewImage",
     "_meta": {
-      "title": "Preview Image"
+      "title": "画像プレビュー"
+    }
+  },
+  "7": {
+    "inputs": {
+      "image": "pasted/image.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Optional Input Image"
     }
   },
   "8": {
     "inputs": {
-      "image": "pasted/image (1).png"
+      "image": "fd61ed753edec059b758c061e8b8c221.jpg"
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -116,7 +129,7 @@
   "9": {
     "inputs": {
       "width": 768,
-      "height": 768,
+      "height": 1024,
       "batch_size": 1
     },
     "class_type": "EmptyLatentImage",
@@ -134,7 +147,7 @@
     },
     "class_type": "SaveImage",
     "_meta": {
-      "title": "Save Image"
+      "title": "画像を保存"
     }
   }
 }

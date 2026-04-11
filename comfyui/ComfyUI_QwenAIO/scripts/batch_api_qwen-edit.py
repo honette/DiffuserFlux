@@ -9,8 +9,8 @@ API_URL = "http://127.0.0.1:8188/prompt"
 LOG_DIR = "/workspace/runpod-slim/ComfyUI/logs"
 CONFIG_PATH = "/workspace/runpod-slim/ComfyUI/scripts/config_qwen.json"
 
-WORKFLOW_1IMG = "/workspace/runpod-slim/ComfyUI/scripts/Qwen-Rapid-AIO_1img_API.json"
-WORKFLOW_2IMG = "/workspace/runpod-slim/ComfyUI/scripts/Qwen-Rapid-AIO_2img_API.json"
+WORKFLOW_1IMG = "/workspace/runpod-slim/ComfyUI/scripts/Qwen-Rapid-AIO_API-v19_1img.json"
+WORKFLOW_2IMG = "/workspace/runpod-slim/ComfyUI/scripts/Qwen-Rapid-AIO_API-v19_2img.json"
 
 # ==== ログ準備 ====
 os.makedirs(LOG_DIR, exist_ok=True)

@@ -1,17 +1,5 @@
 [
   {
-    "positive_prompt": "A girl standing, background is IMAGE2",
-    "image2_path": "/workspace/runpod-slim/ComfyUI/scripts/subset_images/landscapes/taiikukan_wall.jpg"
-  },
-  {
-    "positive_prompt": "A girl posing IMAGE2",
-    "image2_path": "/workspace/runpod-slim/ComfyUI/scripts/subset_images/poses/sit_hold-knees.jpg"
-  },
-  {
-    "positive_prompt": "A girl eating wearing only shirt, pattern of her clothing is IMAGE2",
-    "image2_path": "/workspace/runpod-slim/ComfyUI/scripts/subset_images/textures/argyle-check.jpg"
-  },
-  {
-    "positive_prompt": "A girl eating hamberger"
+    "positive_prompt": "keep composition, keep angle, keep hairstyle, she is japanese teenager. be naked, exposed small breasts"
   }
 ]

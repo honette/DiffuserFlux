@@ -1,0 +1,13 @@
+[
+  {
+    "positive_prompt": "A girl standing, landscape of IMAGE2",
+    "image2_path": "subset_images/city_sunset.png"
+  },
+  {
+    "positive_prompt": "A girl sitting on the beach, landscape of IMAGE2",
+    "image2_path": "subset_images/city_sunset.png"
+  },
+  {
+    "positive_prompt": "A girl sitting on the beach with a dog",
+  }
+]

@@ -46,6 +46,7 @@ images = sorted([
 
 # ==== メインループ ====
 MAX_SIDE = 1920
+MIN_SIDE = 400
 
 for i, img in enumerate(images, start=1):
     img1_full_path = os.path.join(IMAGE_DIR, img)
@@ -77,7 +78,19 @@ for i, img in enumerate(images, start=1):
         try:
             with Image.open(img1_full_path) as im:
                 w, h = im.size
-            new_w, new_h = (int(w * (MAX_SIDE/max(w,h))), int(h * (MAX_SIDE/max(w,h)))) if max(w,h) > MAX_SIDE else (w,h)
+            # new_w, new_h = (int(w * (MAX_SIDE/max(w,h))), int(h * (MAX_SIDE/max(w,h)))) if max(w,h) > MAX_SIDE else (w,h)
+
+            if max(w, h) > MAX_SIDE:
+                scale = MAX_SIDE / max(w, h)
+                w = int(w * scale)
+                h = int(h * scale)
+            if min(w, h) < MIN_SIDE:
+                scale = MIN_SIDE / min(w, h)
+                w = int(w * scale)
+                h = int(h * scale)
+            w = (w // 8) * 8
+            h = (h // 8) * 8
+
             workflow[latent_id]["inputs"]["width"] = new_w
             workflow[latent_id]["inputs"]["height"] = new_h
         except: pass

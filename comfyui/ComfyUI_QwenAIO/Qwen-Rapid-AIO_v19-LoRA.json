@@ -1,116 +1,9 @@
 {
   "id": "b058853e-412f-4f02-95e2-abe2a40ebc2e",
   "revision": 0,
-  "last_node_id": 12,
-  "last_link_id": 20,
+  "last_node_id": 13,
+  "last_link_id": 24,
   "nodes": [
-    {
-      "id": 4,
-      "type": "TextEncodeQwenImageEditPlus",
-      "pos": [
-        -259.2781677246094,
-        417.37896728515625
-      ],
-      "size": [
-        407.40655517578125,
-        195.96002197265625
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 7
-        },
-        {
-          "name": "vae",
-          "shape": 7,
-          "type": "VAE",
-          "link": 9
-        },
-        {
-          "name": "image1",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": null
-        },
-        {
-          "name": "image2",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": null
-        },
-        {
-          "name": "image3",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            4
-          ]
-        }
-      ],
-      "title": "TextEncodeQwenImageEditPlus Negative (leave blank)",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.17.2",
-        "Node name for S&R": "TextEncodeQwenImageEditPlus"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 5,
-      "type": "VAEDecode",
-      "pos": [
-        458.77947434949647,
-        31.000627491145867
-      ],
-      "size": [
-        140,
-        46
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 5
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 6
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            10,
-            19
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.17.2",
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": []
-    },
     {
       "id": 12,
       "type": "PrimitiveInt",
@@ -141,38 +34,8 @@
         "Node name for S&R": "PrimitiveInt"
       },
       "widgets_values": [
-        358626187798009,
+        591450696446528,
         "randomize"
-      ]
-    },
-    {
-      "id": 10,
-      "type": "SaveImage",
-      "pos": [
-        633.4713197532302,
-        44.12335094026546
-      ],
-      "size": [
-        313.47265625,
-        270
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 19
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.17.2"
-      },
-      "widgets_values": [
-        "ComfyUI"
       ]
     },
     {
@@ -252,35 +115,6 @@
       ]
     },
     {
-      "id": 6,
-      "type": "PreviewImage",
-      "pos": [
-        190.44113738721362,
-        355.04136143607036
-      ],
-      "size": [
-        266.2825927734375,
-        346.3945617675781
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 10
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.17.2",
-        "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 8,
       "type": "LoadImage",
       "pos": [
@@ -316,29 +150,234 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "zz_actress_fo_005.jpg",
+        "9da45c7ce28eeb607305d1cf5dcdfdf3.jpg",
         "image"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -239.19235229492188,
+        25.397891998291016
+      ],
+      "size": [
+        369.6529235839844,
+        100.6932373046875
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            22
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2,
+            21
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            6,
+            8,
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.2",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "v19/Qwen-Rapid-AIO-NSFW-v19.safetensors"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "VAEDecode",
+      "pos": [
+        490.40280353264995,
+        -135.74056274729844
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 5
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10,
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.2",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 6,
+      "type": "PreviewImage",
+      "pos": [
+        209.6067914376089,
+        430.7456949351338
+      ],
+      "size": [
+        266.2825927734375,
+        346.3945617675781
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.2",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "SaveImage",
+      "pos": [
+        506.01972031809737,
+        -15.290176615961776
+      ],
+      "size": [
+        313.47265625,
+        270
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 19
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.2"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "LoraLoader",
+      "pos": [
+        171.57905713868956,
+        -139.86692794353542
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 22
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            23
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.18.2",
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "snofs.safetensors",
+        0.8,
+        0.8
       ]
     },
     {
       "id": 2,
       "type": "KSampler",
       "pos": [
-        165.2884979248047,
-        23.94108009338379
+        188.28728278527967,
+        84.31289035213086
       ],
       "size": [
         270,
         262
       ],
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
           "name": "model",
           "type": "MODEL",
-          "link": 1
+          "link": 23
         },
         {
           "name": "positive",
@@ -383,16 +422,80 @@
         "fixed",
         4,
         1,
-        "euler_ancestral",
+        "euler_ancestral_cfg_pp",
         "beta",
         1
+      ]
+    },
+    {
+      "id": 4,
+      "type": "TextEncodeQwenImageEditPlus",
+      "pos": [
+        -259.2781677246094,
+        417.37896728515625
+      ],
+      "size": [
+        407.40655517578125,
+        195.96002197265625
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 24
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 9
+        },
+        {
+          "name": "image1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "image2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "image3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "title": "TextEncodeQwenImageEditPlus Negative (leave blank)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.2",
+        "Node name for S&R": "TextEncodeQwenImageEditPlus"
+      },
+      "widgets_values": [
+        "glossy skin, smooth skin"
       ]
     },
     {
       "id": 3,
       "type": "TextEncodeQwenImageEditPlus",
       "pos": [
-        -230.1153106689453,
+        -229.15702796642543,
         170.6533660888672
       ],
       "size": [
@@ -400,7 +503,7 @@
         197.97994995117188
       ],
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -449,69 +552,11 @@
         "Node name for S&R": "TextEncodeQwenImageEditPlus"
       },
       "widgets_values": [
-        "keep composition, keep angle, she is 12-year-old,\n---\nexposed bare small breasts, visible nipple"
-      ]
-    },
-    {
-      "id": 1,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        -239.19235229492188,
-        25.397891998291016
-      ],
-      "size": [
-        369.6529235839844,
-        100.6932373046875
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            1
-          ]
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            2,
-            7
-          ]
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            6,
-            8,
-            9
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.17.2",
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "v19/Qwen-Rapid-AIO-NSFW-v19.safetensors"
+        "keep composition, keep angle, young woman,\n---\npulled up tops, bare torso, squatting, spread pussy by hands, black plastic toy inserted into vagina"
       ]
     }
   ],
   "links": [
-    [
-      1,
-      1,
-      0,
-      2,
-      0,
-      "MODEL"
-    ],
     [
       2,
       1,
@@ -551,14 +596,6 @@
       5,
       1,
       "VAE"
-    ],
-    [
-      7,
-      1,
-      1,
-      4,
-      0,
-      "CLIP"
     ],
     [
       8,
@@ -623,6 +660,38 @@
       2,
       4,
       "INT"
+    ],
+    [
+      21,
+      1,
+      1,
+      13,
+      1,
+      "CLIP"
+    ],
+    [
+      22,
+      1,
+      0,
+      13,
+      0,
+      "MODEL"
+    ],
+    [
+      23,
+      13,
+      0,
+      2,
+      0,
+      "MODEL"
+    ],
+    [
+      24,
+      13,
+      1,
+      4,
+      0,
+      "CLIP"
     ]
   ],
   "groups": [],
@@ -631,8 +700,8 @@
     "ds": {
       "scale": 1.0435333929857133,
       "offset": [
-        776.162535653387,
-        267.31852737866797
+        964.9442280497867,
+        237.61176360055433
       ]
     },
     "ue_links": [],

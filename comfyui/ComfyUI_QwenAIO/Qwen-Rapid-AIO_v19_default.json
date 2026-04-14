@@ -16,7 +16,7 @@
         195.96002197265625
       ],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -141,7 +141,7 @@
         "Node name for S&R": "PrimitiveInt"
       },
       "widgets_values": [
-        358626187798009,
+        308593259067201,
         "randomize"
       ]
     },
@@ -188,7 +188,7 @@
       ],
       "flags": {},
       "order": 1,
-      "mode": 4,
+      "mode": 0,
       "inputs": [],
       "outputs": [
         {
@@ -281,6 +281,56 @@
       "widgets_values": []
     },
     {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -239.19235229492188,
+        25.397891998291016
+      ],
+      "size": [
+        369.6529235839844,
+        100.6932373046875
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2,
+            7
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            6,
+            8,
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.2",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "v19/Qwen-Rapid-AIO-NSFW-v19.safetensors"
+      ]
+    },
+    {
       "id": 8,
       "type": "LoadImage",
       "pos": [
@@ -292,7 +342,7 @@
         326
       ],
       "flags": {},
-      "order": 3,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -316,7 +366,7 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "zz_actress_fo_005.jpg",
+        "i-img1043x1200-1642308875uywkh248.jpg",
         "image"
       ]
     },
@@ -400,7 +450,7 @@
         197.97994995117188
       ],
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -450,56 +500,6 @@
       },
       "widgets_values": [
         "keep composition, keep angle, she is 12-year-old,\n---\nexposed bare small breasts, visible nipple"
-      ]
-    },
-    {
-      "id": 1,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        -239.19235229492188,
-        25.397891998291016
-      ],
-      "size": [
-        369.6529235839844,
-        100.6932373046875
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            1
-          ]
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            2,
-            7
-          ]
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            6,
-            8,
-            9
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.17.2",
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "v19/Qwen-Rapid-AIO-NSFW-v19.safetensors"
       ]
     }
   ],
@@ -631,12 +631,12 @@
     "ds": {
       "scale": 1.0435333929857133,
       "offset": [
-        776.162535653387,
-        267.31852737866797
+        874.8656540129259,
+        174.3651052342478
       ]
     },
     "ue_links": [],
-    "frontendVersion": "1.41.21",
+    "frontendVersion": "1.41.20",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,

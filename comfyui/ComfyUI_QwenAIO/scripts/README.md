@@ -12,6 +12,7 @@
 ```bash
 pip install -U huggingface_hub[cli] hf_transfer
 hf download Phr00t/Qwen-Image-Edit-Rapid-AIO v19/Qwen-Rapid-AIO-NSFW-v19.safetensors --local-dir /workspace/runpod-slim/ComfyUI/models/checkpoints/
+wget -O /workspace/runpod-slim/ComfyUI/models/loras/snofs.safetensors "https://civitai.com/api/download/models/2474488?token=f9fdfa1a179ff697f808b85f53054b81"
 
 ```
 
@@ -31,3 +32,17 @@ hf download Phr00t/Qwen-Image-Edit-Rapid-AIO v19/Qwen-Rapid-AIO-NSFW-v19.safeten
 python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_qwen-edit.py --limit 20 --skip 0
 
 ```
+
+## SNOFS Prompts
+
+Here's a list of some of the terms that work well:
+porn cowgirl position with black man
+porn cowgirl position with black simple phallic toy
+reclining and fingering
+squatting, hand in wet white panties
+pov, missionary position with black man, vaginal insertion
+sheer clothing, translucent breasts
+tentacles wrap her whole body, her legs up, vaginal insertion
+pulled up tops, bare torso, squatting, spread pussy by hands, vagina gushing
+pulled up tops, bare torso, squatting, spread pussy by hands, black plastic toy inserted into vagina
+pulled up tops, bare torso, looking camera from back, twisted torso, spread ass by pov hands, opened vagina dripping clear liquid

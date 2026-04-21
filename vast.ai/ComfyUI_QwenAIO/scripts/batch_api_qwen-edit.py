@@ -41,7 +41,7 @@ with open(WORKFLOW_2IMG) as f:
 # ==== 入力画像リスト ====
 images = sorted([
     f for f in os.listdir(IMAGE_DIR)
-    if f.lower().endswith((".jpg", ".jpeg", ".png"))
+    if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))
 ])
 
 # ==== メインループ ====

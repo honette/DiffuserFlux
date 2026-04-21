@@ -29,12 +29,24 @@ wget -O /workspace/runpod-slim/ComfyUI/models/loras/snofs.safetensors "https://c
 - 実行例
 
 ```bash
-python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_qwen-edit.py --limit 20 --skip 0
+python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_qwen-edit.py
 
 ```
 
-## SNOFS Prompts
+## BASE PROMPT
+partial editing, she is 14-year-old.
+partial editing, keep her original pose, she is young.
 
+## 半脱ぎ Prompts
+her clothing half off, her nipples slip, exposed bare tiny breasts
+her clothing half off, her nipples slip, exposed bare breasts, spread legs, show opened vagina
+she is topless, her tops unbuttoned off
+
+## ヌード
+she is nudist
+they are nude, topless thin body
+
+## SNOFS Prompts
 Here's a list of some of the terms that work well:
 porn cowgirl position with black man
 porn cowgirl position with black simple phallic toy

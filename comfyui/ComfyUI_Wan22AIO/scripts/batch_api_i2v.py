@@ -53,16 +53,18 @@ with open(WORKFLOW_PATH) as f:
     workflow = json.load(f)
 
 # ==== ノードIDを直接指定（fp8_scaled 4Steps系統 / mode=4）====
-load_id       = 62      # LoadImage
-pos_id        = 6       # Positive CLIPTextEncode
-neg_id        = 7       # Negative CLIPTextEncode
-save_id       = 61      # SaveVideo
-video_node_id = 63      # WanImageToVideo ← ここで width/height/length を変更
+load_id        = 16     # Start Frame LoadImage（widgets_values[0] = filename）
+pos_id         = 9      # Positive CLIPTextEncode（widgets_values[0]）
+neg_id         = 10     # Negative CLIPTextEncode（widgets_values[0]）
+save_id        = 39     # VHS_VideoCombine（widgets_valuesはdict）
+video_node_id  = 28     # WanVaceToVideo（widgets_values[0]=width, [1]=height）
+length_node_id = 48     # PrimitiveInt（num_frames / VIDEO_LENGTH）
 
 log(f"Detected nodes → LoadImage:{load_id}, Positive:{pos_id}, Negative:{neg_id}, SaveVideo:{save_id}")
 
 if 'video_node_id' in locals():
-    log(f"Detected video node for resizing: {video_node_id}")
+    log(f"Detected video node for resizing: {video_node_id} (AIO版)")
+    log(f"Detected length node: {length_node_id}")
 
 # 追加：配線検証
 def ensure_link(from_node, to_node, links):
@@ -134,21 +136,26 @@ for i, img in enumerate(images, start=1):
             width, height = 768, 512
             log(f"   ↳ landscape {w}x{h} → 768x512")
 
-        # WanImageToVideo ノードに設定
-        workflow[str(video_node_id)]["inputs"]["width"] = width
-        workflow[str(video_node_id)]["inputs"]["height"] = height
-        workflow[str(video_node_id)]["inputs"]["length"] = VIDEO_LENGTH
+        # WanVaceToVideo + PrimitiveInt に設定（AIO版）
+        workflow[str(video_node_id)]["widgets_values"][0] = width
+        workflow[str(video_node_id)]["widgets_values"][1] = height
+        workflow[str(length_node_id)]["widgets_values"][0] = VIDEO_LENGTH
+        log(f"   ↳ {w}x{h} → {width}x{height} x {VIDEO_LENGTH} frames (AIO)")
 
     except Exception as e:
         log(f"   ⚠️ Could not adjust resolution for {img}: {e}")
 
     # === ノードごとの入力設定 ===
-    IMAGE_DIR = "/workspace/runpod-slim/ComfyUI/input_images"
-    workflow[str(load_id)]["inputs"]["image"] = os.path.join(IMAGE_DIR, img)
-    workflow[str(pos_id)]["inputs"]["text"] = POS_PROMPT
-    workflow[str(neg_id)]["inputs"]["text"] = NEG_PROMPT
-    workflow[str(save_id)]["inputs"]["filename_prefix"] = f"video/i2v_{basename}"
-    workflow[str(save_id)]["inputs"]["format"] = "mp4"
+    # Start Frame LoadImage（widgets_values[0] = ファイル名のみ）
+    workflow[str(load_id)]["widgets_values"][0] = img
+
+    # Positive / Negative Prompt（widgets_values[0]）
+    workflow[str(pos_id)]["widgets_values"][0] = POS_PROMPT
+    workflow[str(neg_id)]["widgets_values"][0] = NEG_PROMPT
+
+    # VHS_VideoCombine（widgets_valuesはdict）
+    workflow[str(save_id)]["widgets_values"]["filename_prefix"] = f"video/i2v_{basename}"
+    # formatはworkflow内で"video/h264-mp4"固定でOK
 
     try:
         payload = {"prompt": workflow, "client_id": str(uuid.uuid4())}

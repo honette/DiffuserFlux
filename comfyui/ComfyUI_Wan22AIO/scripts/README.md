@@ -8,6 +8,10 @@
 pip install -U huggingface_hub[cli] hf_transfer
 hf download Phr00t/WAN2.2-14B-Rapid-AllInOne Mega-v12/wan2.2-rapid-mega-aio-nsfw-v12.2.safetensors --local-dir /workspace/runpod-slim/ComfyUI/models/checkpoints/
 wget -O /workspace/runpod-slim/ComfyUI/models/loras/BouncingBoobs.safetensors "https://civitai.com/api/download/models/2191270?token=f9fdfa1a179ff697f808b85f53054b81"
+wget -O /workspace/runpod-slim/ComfyUI/models/loras/FemaleMasterbation.safetensors "https://civitai.com/api/download/models/2504579?token=f9fdfa1a179ff697f808b85f53054b81"
+wget -O /workspace/runpod-slim/ComfyUI/models/loras/FingeringAndSquirting.safetensors "https://civitai.com/api/download/models/1970145?token=f9fdfa1a179ff697f808b85f53054b81"
+wget -O /workspace/runpod-slim/ComfyUI/models/loras/NippleStroke.safetensors "https://civitai.com/api/download/models/2228466?token=f9fdfa1a179ff697f808b85f53054b81"
+
 # hf download Phr00t/WAN2.2-14B-Rapid-AllInOne Mega-v10/wan2.2-rapid-mega-aio-nsfw-v10.safetensors --local-dir /workspace/runpod-slim/ComfyUI/models/checkpoints/
 # wget -O /workspace/runpod-slim/ComfyUI/models/loras/VaginaCloseUpFromBelow.safetensors "https://civitai.com/api/download/models/2810762?token=f9fdfa1a179ff697f808b85f53054b81"
 # wget -O /workspace/runpod-slim/ComfyUI/models/loras/DR34ML4Y.safetensors "https://civitai.com/api/download/models/2553271?token=f9fdfa1a179ff697f808b85f53054b81"
@@ -33,11 +37,26 @@ python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_qwen-edit.py
 
 ```
 
+---
+## Sample Prompts
+
+```
+4k high resolution, Fast forward video. 4x speed movements.high speed action. she is young teenager, lolita. camera pull back to reveal her full body. Camera dollies out, (((Extremely skinny))). (((((extremely small breasts))))).
+
+hentai animation. japanese hentai porn. she undress and rip outfits, she throw out own outfits. she is topless, slender naked body, breasts and nipples, expose vagina.
+she squat up and down, bounce hip up and down, suppoert breasts on arms, vaginal insertion with black dildo grown ground. hopping. extremely excited sex.
+```
+
 fast and large Movements. 2x speed movements. double speed movements.
 woman squat, legs apart, hip bouncing up and down, pussy squiting
 
 Fast forward video. 4x speed movements.
 Fast forward video. 4x speed movements. high speed action. keep smiling, she is 12-year-old.
+
+japanese woman keep smiling, slightly spread legs, she squat up and down dynamicly, bouncing body, pussy juice
+japanese woman keep smiling, undress by hand
+
+her hands behind own head, another suited man squeeze her breasts by palm from behind her, bouncing breasts
 
 she transform into fully naked in a moment, become completly nude, low teen girl squat up and down, legs apart, shake hip dynamicly, pussy squiting, nsfw porn.
 she transform into fully naked in a moment, become completly nude, low teen girl squat up and down, legs apart, shake hip dynamicly, pussy squiting, nsfw porn, vaginal insertion with diodo.

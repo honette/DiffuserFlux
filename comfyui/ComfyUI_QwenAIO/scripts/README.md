@@ -34,8 +34,7 @@ python3 /workspace/runpod-slim/ComfyUI/scripts/batch_api_qwen-edit.py
 ```
 
 ## BASE PROMPT
-partial editing, she is 14-year-old.
-partial editing, keep her original pose, she is young.
+partial editing, keep her original pose, keep her face, she is young.
 
 ## 半脱ぎ Prompts
 her clothing half off, her nipples slip, exposed bare tiny breasts

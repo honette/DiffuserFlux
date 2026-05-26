@@ -1,7 +1,7 @@
 {
   "id": "b058853e-412f-4f02-95e2-abe2a40ebc2e",
   "revision": 0,
-  "last_node_id": 13,
+  "last_node_id": 14,
   "last_link_id": 24,
   "nodes": [
     {
@@ -34,7 +34,7 @@
         "Node name for S&R": "PrimitiveInt"
       },
       "widgets_values": [
-        591450696446528,
+        767373326458229,
         "randomize"
       ]
     },
@@ -79,82 +79,6 @@
       ]
     },
     {
-      "id": 9,
-      "type": "EmptyLatentImage",
-      "pos": [
-        -189.9932403564453,
-        660.2916870117188
-      ],
-      "size": [
-        270,
-        106
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            13
-          ]
-        }
-      ],
-      "title": "Final Image Size",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.17.2",
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        720,
-        1280,
-        1
-      ]
-    },
-    {
-      "id": 8,
-      "type": "LoadImage",
-      "pos": [
-        -556.9057998862783,
-        21.345966339111328
-      ],
-      "size": [
-        284,
-        326
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            18
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "title": "Optional Input Image",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.17.2",
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "9da45c7ce28eeb607305d1cf5dcdfdf3.jpg",
-        "image"
-      ]
-    },
-    {
       "id": 1,
       "type": "CheckpointLoaderSimple",
       "pos": [
@@ -166,7 +90,7 @@
         100.6932373046875
       ],
       "flags": {},
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -307,59 +231,6 @@
       ]
     },
     {
-      "id": 13,
-      "type": "LoraLoader",
-      "pos": [
-        171.57905713868956,
-        -139.86692794353542
-      ],
-      "size": [
-        270,
-        126
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 22
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 21
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            23
-          ]
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            24
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.18.2",
-        "Node name for S&R": "LoraLoader"
-      },
-      "widgets_values": [
-        "snofs.safetensors",
-        0.8,
-        0.8
-      ]
-    },
-    {
       "id": 2,
       "type": "KSampler",
       "pos": [
@@ -428,6 +299,95 @@
       ]
     },
     {
+      "id": 13,
+      "type": "LoraLoader",
+      "pos": [
+        171.57905713868956,
+        -139.86692794353542
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 22
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            23
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.18.2",
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "snofs.safetensors",
+        0.3,
+        0.3
+      ]
+    },
+    {
+      "id": 9,
+      "type": "EmptyLatentImage",
+      "pos": [
+        -189.9932403564453,
+        660.2916870117188
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "title": "Final Image Size",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.2",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        800,
+        1200,
+        1
+      ]
+    },
+    {
       "id": 4,
       "type": "TextEncodeQwenImageEditPlus",
       "pos": [
@@ -488,7 +448,47 @@
         "Node name for S&R": "TextEncodeQwenImageEditPlus"
       },
       "widgets_values": [
-        "glossy skin, smooth skin"
+        "glossy skin, smooth skin, saliva"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "LoadImage",
+      "pos": [
+        -556.9057998862783,
+        21.345966339111328
+      ],
+      "size": [
+        284,
+        326
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            18
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Optional Input Image",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.2",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "nishiyama_noriko-011.jpg",
+        "image"
       ]
     },
     {
@@ -552,7 +552,7 @@
         "Node name for S&R": "TextEncodeQwenImageEditPlus"
       },
       "widgets_values": [
-        "keep composition, keep angle, young woman,\n---\npulled up tops, bare torso, squatting, spread pussy by hands, black plastic toy inserted into vagina"
+        "partial editing, keep her original pose, keep her face, she is 14-year-old.\n---\npulled up tops, visible breasts, bottoms slip down under butt, slender body"
       ]
     }
   ],
@@ -698,10 +698,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.0435333929857133,
+      "scale": 0.8624242917237301,
       "offset": [
-        964.9442280497867,
-        237.61176360055433
+        972.8308946915246,
+        296.91029723247897
       ]
     },
     "ue_links": [],

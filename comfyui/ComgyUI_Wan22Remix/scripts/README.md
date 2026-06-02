@@ -17,6 +17,35 @@ wget -O /workspace/runpod-slim/ComfyUI/models/loras/BoobSizeSlider-Low.safetenso
 
 ```
 
+```bash
+pip install -U huggingface_hub[cli] hf_transfer
+hf download FX-FeiHou/wan2.2-Remix NSFW/Wan2.2_Remix_NSFW_i2v_14b_high_lighting_fp8_e4m3fn_v3.0.safetensors --local-dir /app/ComfyUI/models/diffusion_models/
+hf download FX-FeiHou/wan2.2-Remix NSFW/Wan2.2_Remix_NSFW_i2v_14b_low_lighting_fp8_e4m3fn_v3.0.safetensors --local-dir /app/ComfyUI/models/diffusion_models/
+hf download NSFW-API/NSFW-Wan-UMT5-XXL nsfw_wan_umt5-xxl_fp8_scaled.safetensors --local-dir /app/ComfyUI/models/text_encoders/
+hf download Comfy-Org/Wan_2.2_ComfyUI_Repackaged split_files/vae/wan_2.1_vae.safetensors --local-dir /app/ComfyUI/models/vae/
+hf download Kijai/WanVideo_comfy LoRAs/Wan22-Lightning/old/Wan2.2-Lightning_I2V-A14B-4steps-lora_HIGH_fp16.safetensors --local-dir /app/ComfyUI/models/loras/
+hf download Kijai/WanVideo_comfy LoRAs/Wan22-Lightning/old/Wan2.2-Lightning_I2V-A14B-4steps-lora_LOW_fp16.safetensors --local-dir /app/ComfyUI/models/loras/
+wget -O /app/ComfyUI/models/loras/BoobSizeSlider-High.safetensors "https://civitai.com/api/download/models/2665828?token=f9fdfa1a179ff697f808b85f53054b81"
+wget -O /app/ComfyUI/models/loras/BoobSizeSlider-Low.safetensors "https://civitai.com/api/download/models/2665880?token=f9fdfa1a179ff697f808b85f53054b81"
+
+```
+
+コンソールでMissing Nodeを解決
+```bash
+cd /workspace/runpod-slim/ComfyUI/custom_nodes
+git clone https://github.com/rgthree/rgthree-comfy.git
+git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
+git clone https://github.com/Starnodes2024/ComfyUI_StarNodes.git
+git clone https://github.com/olduvai-jp/ComfyUI-S3-IO.git
+git clone https://github.com/vrgamegirl19/comfyui-vrgamedevgirl
+git clone https://github.com/budihartono/comfyui-aspect-ratio-presets
+find . -name requirements.txt -exec pip install -r {} \;
+
+pkill -9 -f main.py
+cd /workspace/runpod-slim/ComfyUI
+nohup python3 main.py --listen 0.0.0.0 --port 81 > comfyui.log 2>&1 &
+```
+
 CIVITAI API KEY forcomfy
 f9fdfa1a179ff697f808b85f53054b81
 
